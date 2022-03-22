@@ -3,4 +3,6 @@ module OOPD.beroepsproduct {
 
     exports com.github.neotje.DepthsDescending;
     exports com.github.neotje.DepthsDescending.Scenes;
+
+    opens textures;
 }
