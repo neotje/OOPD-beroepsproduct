@@ -1,4 +1,15 @@
 package com.github.neotje.DepthsDescending.Scenes;
 
-public class EndScene {
+import com.github.hanyaeger.api.scenes.StaticScene;
+
+public class EndScene extends StaticScene {
+    @Override
+    public void setupScene() {
+
+    }
+
+    @Override
+    public void setupEntities() {
+
+    }
 }
