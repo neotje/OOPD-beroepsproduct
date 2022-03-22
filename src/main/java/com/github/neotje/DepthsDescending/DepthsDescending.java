@@ -12,7 +12,7 @@ public class DepthsDescending extends YaegerGame {
     @Override
     public void setupGame() {
         setGameTitle("Descending Depths");
-        setSize(new Size(800, 400));
+        setSize(new Size(690, 517));
 
     }
 
