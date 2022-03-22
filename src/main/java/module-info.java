@@ -1,5 +1,5 @@
 module OOPD.beroepsproduct {
     requires hanyaeger;
 
-    exports // TODO: Package naam
+    exports com.github.neotje.DepthsDescending;
 }
