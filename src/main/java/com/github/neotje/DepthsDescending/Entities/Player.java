@@ -17,7 +17,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     private int toughness;
     private double speed;
 
-    protected Player(int attack, int toughness, double speed, Coordinate2D initialLocation, Size size) {
+    public Player(int attack, int toughness, double speed, Coordinate2D initialLocation, Size size) {
         super("", initialLocation, size);
 
         this.attack = attack;
