@@ -4,7 +4,7 @@ module OOPD.beroepsproduct {
     exports com.github.neotje.DepthsDescending;
     exports com.github.neotje.DepthsDescending.Scenes;
 
-
     opens background;
     opens fonts;
+    opens textures.dragon;
 }

@@ -13,6 +13,5 @@ public abstract class Enemy extends DynamicCompositeEntity {
         super(location);
         this.Attack = Attack;
         this.Toughness = Toughness;
-        setAnchorPoint(AnchorPoint.CENTER_CENTER);
     }
 }
