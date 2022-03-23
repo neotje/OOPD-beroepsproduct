@@ -27,7 +27,7 @@ public class TitleScene extends StaticScene {
 
         titleText.setAnchorPoint(AnchorPoint.CENTER_CENTER);
         titleText.setFont(Font.font("fonts/RINGM___.tiff", FontWeight.SEMI_BOLD, 80));
-        Button startButton = new Button(new Coordinate2D(getWidth()/2, getHeight()/2 + 60), depthsDescending, 4, "Start game");
+        Button startButton = new Button(new Coordinate2D(getWidth()/2, getHeight()/2 + 60), depthsDescending, 1, "Start game");
         startButton.setAnchorPoint(AnchorPoint.CENTER_CENTER);
 
         addEntity(titleText);
