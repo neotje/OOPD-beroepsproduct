@@ -13,7 +13,7 @@ import javafx.scene.input.KeyCode;
 
 import java.util.Set;
 
-public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, Newtonian, Combat {
+public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, Newtonian, Combat, Collider {
     private int attack;
     private int toughness;
     private double speed;
@@ -82,6 +82,6 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     @Override
     public void doeDamage(int attackStrength) {
-
+        this.toughness -= attackStrength;
     }
 }
