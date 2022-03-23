@@ -12,31 +12,33 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-public class StartButton extends TextEntity implements MouseButtonPressedListener, MouseExitListener, MouseEnterListener {
+public class Button extends TextEntity implements MouseButtonPressedListener, MouseExitListener, MouseEnterListener {
     public DepthsDescending depthsDescending;
+    private int changeToScene;
 
-    public StartButton(Coordinate2D initialLocation, DepthsDescending depthsDescending){
-        super(initialLocation, "Start Game");
+    public Button(Coordinate2D initialLocation, DepthsDescending depthsDescending, int changeToScene, String buttontext){
+        super(initialLocation, buttontext);
+        this.changeToScene = changeToScene;
         this.depthsDescending = depthsDescending;
-        setFill(Color.PURPLE);
+        setFill(Color.SADDLEBROWN);
         setFont(Font.font("Roboto", FontWeight.BOLD, 30));
     }
 
     @Override
     public void onMouseButtonPressed(MouseButton button, Coordinate2D coordinate2D) {
-        depthsDescending.setActiveScene(4);
+        depthsDescending.setActiveScene(changeToScene);
 
     }
 
     @Override
     public void onMouseEntered() {
-        setFill(Color.DEEPSKYBLUE);
+        setFill(Color.BLACK);
         setCursor(Cursor.HAND);
     }
 
     @Override
     public void onMouseExited() {
-        setFill(Color.DEEPPINK);
+        setFill(Color.BROWN);
         setCursor(Cursor.DEFAULT);
 
     }
