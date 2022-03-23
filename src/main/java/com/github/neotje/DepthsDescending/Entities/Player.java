@@ -82,6 +82,5 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     @Override
     public void doeDamage(int attackStrength) {
-
     }
 }
