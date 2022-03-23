@@ -3,9 +3,14 @@ package com.github.neotje.DepthsDescending.Scenes;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 
 public class GameScene extends DynamicScene {
+    protected String location;
+
+    public GameScene(String location){
+        this.location = location;
+    }
     @Override
     public void setupScene() {
-        setBackgroundImage("background/room.png");
+        setBackgroundImage(location);
 
     }
 

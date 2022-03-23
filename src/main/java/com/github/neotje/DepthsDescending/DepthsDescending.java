@@ -2,6 +2,7 @@ package com.github.neotje.DepthsDescending;
 
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.YaegerGame;
+import com.github.neotje.DepthsDescending.Rooms.Room;
 import com.github.neotje.DepthsDescending.Scenes.GameScene;
 import com.github.neotje.DepthsDescending.Scenes.TitleScene;
 
@@ -20,7 +21,7 @@ public class DepthsDescending extends YaegerGame {
     @Override
     public void setupScenes() {
     addScene(0, new TitleScene(this));
-    addScene(1, new GameScene());
+    addScene(1, new Room("background/room.png"));
 
     }
 
