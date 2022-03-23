@@ -27,8 +27,10 @@ public class TitleScene extends StaticScene {
 
         titleText.setAnchorPoint(AnchorPoint.CENTER_CENTER);
         titleText.setFont(Font.font("fonts/RINGM___.tiff", FontWeight.SEMI_BOLD, 80));
+        StartButton startButton = new StartButton(new Coordinate2D(getWidth()/2, getHeight()/2 + 60), depthsDescending);
+        startButton.setAnchorPoint(AnchorPoint.CENTER_CENTER);
 
         addEntity(titleText);
-        addEntity(new StartButton(new Coordinate2D(getWidth()/2, getHeight()/2 + 60), depthsDescending));
+        addEntity(startButton);
     }
 }

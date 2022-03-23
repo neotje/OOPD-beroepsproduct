@@ -1,4 +1,6 @@
 package com.github.neotje.DepthsDescending.Rooms;
 
-public class Room {
+import com.github.neotje.DepthsDescending.Scenes.GameScene;
+
+public class Room extends GameScene {
 }
