@@ -16,6 +16,6 @@ public class GameScene extends DynamicScene {
 
     @Override
     public void setupEntities() {
-
+        addEntity(getPlayer1());
     }
 }
