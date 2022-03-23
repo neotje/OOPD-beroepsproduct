@@ -25,7 +25,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         this.toughness = toughness;
         this.speed = speed;
 
-        setFrictionConstant(0.08);
+        setFrictionConstant(0.1);
         setGravityConstant(0);
     }
 

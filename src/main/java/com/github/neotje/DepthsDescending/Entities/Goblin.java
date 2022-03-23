@@ -2,6 +2,7 @@ package com.github.neotje.DepthsDescending.Entities;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
+import com.github.hanyaeger.api.entities.Collider;
 import com.github.neotje.DepthsDescending.Sprites.GoblinSprite;
 
 public class Goblin extends Enemy implements Combat{
@@ -16,6 +17,11 @@ public class Goblin extends Enemy implements Combat{
 
     @Override
     public void doeDamage(int attackStrength) {
-        this.Toughness -= attackStrength;
+        this.toughness -= attackStrength;
+    }
+
+    @Override
+    public void onCollision(Collider collidingObject) {
+        ((Combat) collidingObject).doeDamage(this.attack);
     }
 }
