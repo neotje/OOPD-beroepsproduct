@@ -15,10 +15,10 @@ import java.util.Set;
 public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided {
     private int attack;
     private int toughness;
-    private float speed;
+    private double speed;
 
-    protected Player(int attack, int toughness, float speed, String resource, Coordinate2D initialLocation, Size size) {
-        super(resource, initialLocation, size);
+    protected Player(int attack, int toughness, double speed, Coordinate2D initialLocation, Size size) {
+        super("", initialLocation, size);
 
         this.attack = attack;
         this.toughness = toughness;
@@ -26,7 +26,15 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     }
 
     public void Movement(Set<KeyCode> pressedKeys) {
-
+        if (pressedKeys.contains(KeyCode.W)) {
+            setMotion(this.speed, 0d);
+        } else if (pressedKeys.contains(KeyCode.D)) {
+            setMotion(this.speed, 90d);
+        } else if (pressedKeys.contains(KeyCode.S)) {
+            setMotion(this.speed, 180d);
+        } else if (pressedKeys.contains(KeyCode.A)) {
+            setMotion(this.speed, 270d);
+        }
     }
 
     @Override
