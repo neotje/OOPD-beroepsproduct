@@ -13,7 +13,7 @@ import javafx.scene.input.KeyCode;
 
 import java.util.Set;
 
-public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, Newtonian {
+public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, Newtonian, Combat {
     private int attack;
     private int toughness;
     private double speed;
@@ -25,7 +25,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         this.toughness = toughness;
         this.speed = speed;
 
-        setFrictionConstant(0.04);
+        setFrictionConstant(0.08);
         setGravityConstant(0);
     }
 
@@ -56,11 +56,32 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     @Override
     public void notifyBoundaryTouching(SceneBorder border) {
+        setSpeed(0);
 
+        switch(border){
+            case TOP:
+                setAnchorLocationY(1);
+                break;
+            case BOTTOM:
+                setAnchorLocationY(getSceneHeight() - getHeight() - 1);
+                break;
+            case LEFT:
+                setAnchorLocationX(1);
+                break;
+            case RIGHT:
+                setAnchorLocationX(getSceneWidth() - getWidth() - 1);
+            default:
+                break;
+        }
     }
 
     @Override
     public void onCollision(Collider collidingObject) {
+        ((Combat) collidingObject).doeDamage(this.attack);
+    }
+
+    @Override
+    public void doeDamage(int attackStrength) {
 
     }
 }
