@@ -10,7 +10,7 @@ import com.github.neotje.DepthsDescending.Scenes.TitleScene;
 import com.github.neotje.DepthsDescending.Entities.Player;
 
 public class DepthsDescending extends YaegerGame {
-    //public Player player1 = new Player(10,10, 20, new Coordinate2D(60, 40), new Size(30,30));
+    public Player player1 = new Player(10,10, 3, new Coordinate2D(60, 40));
 
     public static void main(String[] args) {
         launch(args); }
@@ -25,9 +25,9 @@ public class DepthsDescending extends YaegerGame {
     @Override
     public void setupScenes() {
     addScene(0, new TitleScene(this));
-    addScene(1, new Room("background/room.png"));
-    addScene(2, new Room("background/room9.png"));
-    addScene(3, new Room("background/room10.png"));
+    addScene(1, new Room("background/room.png", this));
+    addScene(2, new Room("background/room9.png", this));
+    addScene(3, new Room("background/room10.png", this));
     addScene(4, new EndScene(this));
 
     }
