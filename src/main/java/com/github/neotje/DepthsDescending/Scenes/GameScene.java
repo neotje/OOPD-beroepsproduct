@@ -21,7 +21,6 @@ public class GameScene extends DynamicScene {
 
     @Override
     public void setupEntities() {
-        depthsDescending.player1.mapBoundary();
         addEntity(depthsDescending.player1);
     }
 

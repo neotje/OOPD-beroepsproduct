@@ -4,7 +4,8 @@ import com.github.neotje.DepthsDescending.DepthsDescending;
 import com.github.neotje.DepthsDescending.Scenes.GameScene;
 
 public class Room extends GameScene {
-    DepthsDescending depthsDescending;
+    private DepthsDescending depthsDescending;
+    private static int roomNR;
 
     public Room(String location, DepthsDescending depthsDescending){
         super(location, depthsDescending);

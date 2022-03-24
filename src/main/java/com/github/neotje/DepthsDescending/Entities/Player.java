@@ -30,6 +30,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     }
 
     public void Movement(Set<KeyCode> pressedKeys) {
+        mapBoundary();
         if (pressedKeys.contains(KeyCode.W) && pressedKeys.contains(KeyCode.D)) {
             setMotion(this.speed, 180d - 45d);
         } else if (pressedKeys.contains(KeyCode.D) && pressedKeys.contains(KeyCode.S)) {
@@ -58,14 +59,14 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     public void mapBoundary(){
         System.out.println(getAnchorLocation());
         setSpeed(0);
-        if(getAnchorLocation().getX() >= 104){
-            System.out.print("hoer");
-        } else if(getAnchorLocation().getX() <= 582){
-            System.out.print("hoer");
-        } else if(getAnchorLocation().getY() >= 102){
-            System.out.print("hoer");
-        } else if(getAnchorLocation().getY() <= 372){
-            System.out.print("hoer");
+        if(getAnchorLocation().getX() <= 104){
+            setAnchorLocationX(105);
+        } else if(getAnchorLocation().getX() >= 528){
+            setAnchorLocationX(527);
+        } else if(getAnchorLocation().getY() <= 102){
+            setAnchorLocationY(101);
+        } else if(getAnchorLocation().getY() >= 349){
+            setAnchorLocationY(349);
         }
 
     }
