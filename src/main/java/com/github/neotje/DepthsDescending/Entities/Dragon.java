@@ -15,7 +15,6 @@ public class Dragon extends Enemy implements UpdateExposer{
     DragonNeck dragonNeck3;
     DragonNeck dragonNeck4;
     boolean[] headDirection = {false, false};
-    boolean[] neckDirection = {false, false, false ,false};
     double[] headPosition = {0, -60};
     double[] neckPosition1 = {0, -160};
     double[] neckPosition2 = {0, -140};
@@ -59,6 +58,7 @@ public class Dragon extends Enemy implements UpdateExposer{
 
     @Override
     public void onCollision(Collider collider) {
+        System.out.println("head");
         ((Combat) collider).doeDamage(this.attack);
     }
 

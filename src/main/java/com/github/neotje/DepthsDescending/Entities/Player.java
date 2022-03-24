@@ -25,7 +25,6 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         this.toughness = toughness;
         this.speed = speed;
 
-        setFrictionConstant(0.1);
         setGravityConstant(0);
     }
 
@@ -57,7 +56,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
 
     public void mapBoundary(){
-        System.out.println(getAnchorLocation());
+        //System.out.println(getAnchorLocation());
         setSpeed(0);
         if(getAnchorLocation().getX() <= 104){
             setAnchorLocationX(105);
@@ -73,7 +72,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     @Override
     public void notifyBoundaryTouching(SceneBorder border) {
         setSpeed(0);
-        System.out.println();
+        //System.out.println();
         switch(border){
             case TOP:
                 setAnchorLocationY(1);
@@ -93,7 +92,9 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     @Override
     public void onCollision(Collider collidingObject) {
-        ((Combat) collidingObject).doeDamage(this.attack);
+        if(collidingObject instanceof Enemy){
+            ((Combat) collidingObject).doeDamage(this.attack);
+        }
     }
 
     @Override

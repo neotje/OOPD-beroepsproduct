@@ -23,12 +23,11 @@ public class DepthsDescending extends YaegerGame {
 
     @Override
     public void setupScenes() {
-    addScene(0, new TitleScene(this));
-    addScene(1, new Room("background/room.png", this));
-    addScene(2, new Room("background/room9.png", this));
-    addScene(3, new Room("background/room10.png", this));
-    addScene(4, new EndScene(this));
-
+        addScene(0, new TitleScene(this));
+        addScene(1, new Room("background/room.png", this));
+        addScene(2, new Room("background/room9.png", this));
+        addScene(3, new Room("background/room10.png", this));
+        addScene(4, new EndScene(this));
     }
 
 
