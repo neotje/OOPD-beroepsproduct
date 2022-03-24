@@ -5,10 +5,11 @@ import com.github.neotje.DepthsDescending.Scenes.GameScene;
 
 public class Room extends GameScene {
     private DepthsDescending depthsDescending;
-    private static int roomNR;
+
 
     public Room(String location, DepthsDescending depthsDescending){
         super(location, depthsDescending);
         this.depthsDescending = depthsDescending;
+
     }
 }

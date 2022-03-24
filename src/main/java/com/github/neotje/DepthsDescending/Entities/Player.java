@@ -9,6 +9,8 @@ import com.github.hanyaeger.api.entities.SceneBorderTouchingWatcher;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
+import com.github.neotje.DepthsDescending.DepthsDescending;
+import com.github.neotje.DepthsDescending.Scenes.GameScene;
 import javafx.scene.input.KeyCode;
 
 import java.util.Set;
@@ -17,15 +19,15 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     private int attack;
     private int toughness;
     private double speed;
-
-    public Player(int attack, int toughness, double speed, Coordinate2D initialLocation) {
+    public int roomNR;
+    DepthsDescending depthsDescending;
+    public Player(int attack, int toughness, double speed, Coordinate2D initialLocation,DepthsDescending depthsDescending) {
         super("background/hanny.png", initialLocation, new Size(50, 50));
-
+        this.depthsDescending = depthsDescending;
         this.attack = attack;
         this.toughness = toughness;
         this.speed = speed;
-
-        setGravityConstant(0);
+        roomNR++;
     }
 
     public void Movement(Set<KeyCode> pressedKeys) {
@@ -92,8 +94,12 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     @Override
     public void onCollision(Collider collidingObject) {
-        if(collidingObject instanceof Enemy){
+        if(collidingObject instanceof Goblin){
             ((Combat) collidingObject).doeDamage(this.attack);
+        } else if(collidingObject instanceof Door){
+            roomNR++;
+            setAnchorLocation(new Coordinate2D(316, 349));
+            depthsDescending.setActiveScene(roomNR);
         }
     }
 

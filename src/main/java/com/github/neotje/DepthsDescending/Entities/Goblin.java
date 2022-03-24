@@ -6,7 +6,7 @@ import com.github.hanyaeger.api.entities.Collider;
 import com.github.neotje.DepthsDescending.Sprites.GoblinSprite;
 
 public class Goblin extends Enemy implements Combat{
-    Goblin(Coordinate2D location, int Attack, int Toughness) {
+    public Goblin(Coordinate2D location, int Attack, int Toughness) {
         super(location, Attack, Toughness);
     }
 
