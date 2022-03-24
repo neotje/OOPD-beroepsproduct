@@ -5,6 +5,7 @@ import com.github.hanyaeger.api.entities.impl.TextEntity;
 import com.github.hanyaeger.api.userinput.MouseButtonPressedListener;
 import com.github.hanyaeger.api.userinput.MouseEnterListener;
 import com.github.hanyaeger.api.userinput.MouseExitListener;
+import com.github.hanyaeger.api.userinput.MouseMovedListener;
 import com.github.neotje.DepthsDescending.DepthsDescending;
 import javafx.scene.Cursor;
 import javafx.scene.input.MouseButton;
@@ -27,7 +28,6 @@ public class Button extends TextEntity implements MouseButtonPressedListener, Mo
     @Override
     public void onMouseButtonPressed(MouseButton button, Coordinate2D coordinate2D) {
         depthsDescending.setActiveScene(changeToScene);
-
     }
 
     @Override

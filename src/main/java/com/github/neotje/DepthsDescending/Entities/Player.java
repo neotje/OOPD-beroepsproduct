@@ -54,10 +54,25 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         this.Movement(pressedKeys);
     }
 
+
+    public void mapBoundary(){
+        System.out.println(getAnchorLocation());
+        setSpeed(0);
+        if(getAnchorLocation().getX() >= 104){
+            System.out.print("hoer");
+        } else if(getAnchorLocation().getX() <= 582){
+            System.out.print("hoer");
+        } else if(getAnchorLocation().getY() >= 102){
+            System.out.print("hoer");
+        } else if(getAnchorLocation().getY() <= 372){
+            System.out.print("hoer");
+        }
+
+    }
     @Override
     public void notifyBoundaryTouching(SceneBorder border) {
         setSpeed(0);
-
+        System.out.println();
         switch(border){
             case TOP:
                 setAnchorLocationY(1);
