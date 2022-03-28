@@ -8,7 +8,7 @@ public class DragonClaw extends Enemy{
     private String resource;
 
     public DragonClaw(Coordinate2D location, int attack, int toughness, String resource){
-        super(location, attack, toughness);
+        super(location, attack, toughness, 2000);
         this.resource = resource;
     }
 
@@ -20,8 +20,8 @@ public class DragonClaw extends Enemy{
     }
 
     @Override
-    public void onCollision(Collider collider) {
-
+    public void onAttack(Player player) {
+        player.doeDamage(this.attack);
     }
 
     @Override

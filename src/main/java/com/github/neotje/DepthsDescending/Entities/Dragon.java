@@ -3,6 +3,7 @@ package com.github.neotje.DepthsDescending.Entities;
 import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.Collider;
+import com.github.neotje.DepthsDescending.GamePlay.Combat;
 import com.github.neotje.DepthsDescending.Sprites.DragonHead;
 import com.github.neotje.DepthsDescending.Sprites.DragonNeck;
 import com.github.hanyaeger.api.UpdateExposer;
@@ -22,7 +23,7 @@ public class Dragon extends Enemy implements UpdateExposer{
     double[] neckPosition4 = {0, -100};
 
     public Dragon(Coordinate2D location, int attack, int toughness) {
-        super(location, attack, toughness);
+        super(location, attack, toughness, 3000);
     }
 
     @Override
@@ -57,11 +58,8 @@ public class Dragon extends Enemy implements UpdateExposer{
     }
 
     @Override
-    public void onCollision(Collider collider) {
-        if(collider instanceof Player){
-            System.out.println("head");
-            ((Combat) collider).doeDamage(this.attack);
-        }
+    public void onAttack(Player player) {
+        player.doeDamage(this.attack);
     }
 
     @Override

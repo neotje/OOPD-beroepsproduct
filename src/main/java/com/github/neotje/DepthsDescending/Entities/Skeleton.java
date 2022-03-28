@@ -5,12 +5,12 @@ import com.github.hanyaeger.api.entities.Collider;
 
 public class Skeleton extends Enemy{
     public Skeleton(Coordinate2D location, int Attack, int Toughness) {
-        super(location, Attack, Toughness);
+        super(location, Attack, Toughness, 1000);
     }
 
     @Override
-    public void onCollision(Collider collider) {
-
+    public void onAttack(Player player) {
+        player.doeDamage(this.attack);
     }
 
     @Override

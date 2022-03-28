@@ -10,7 +10,7 @@ import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
 import com.github.neotje.DepthsDescending.DepthsDescending;
-import com.github.neotje.DepthsDescending.Scenes.GameScene;
+import com.github.neotje.DepthsDescending.GamePlay.Combat;
 import javafx.scene.input.KeyCode;
 
 import java.util.HashSet;
@@ -125,7 +125,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     @Override
     public void notifyBoundaryTouching(SceneBorder border) {
         setSpeed(0);
-        //System.out.println();
+
         switch(border){
             case TOP:
                 setAnchorLocationY(1);
@@ -145,7 +145,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     @Override
     public void onCollision(Collider collidingObject) {
-        if(collidingObject instanceof Goblin){
+        if(collidingObject instanceof Enemy){
             ((Combat) collidingObject).doeDamage(this.attack);
         } else if(collidingObject instanceof Door){
             roomNR++;

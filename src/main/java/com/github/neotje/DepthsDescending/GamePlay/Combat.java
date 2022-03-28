@@ -1,4 +1,4 @@
-package com.github.neotje.DepthsDescending.Entities;
+package com.github.neotje.DepthsDescending.GamePlay;
 
 public interface Combat {
     void doeDamage(int attackStrength);
