@@ -21,7 +21,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     public int roomNR;
     DepthsDescending depthsDescending;
     public Player(int attack, int toughness, double speed, Coordinate2D initialLocation,DepthsDescending depthsDescending) {
-        super("background/hanny1.0.png", initialLocation, new Size(50, 100), 1, 2);
+        super("textures/hanny.png", initialLocation, new Size(50, 100), 1, 2);
         this.depthsDescending = depthsDescending;
         this.attack = attack;
         this.toughness = toughness;
