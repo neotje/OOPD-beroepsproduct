@@ -34,7 +34,7 @@ public class DepthsDescending extends YaegerGame {
         addScene(8, new Room("background/room.png", this));
         addScene(9, new Room("background/room9.png", this));
         addScene(10, new Room("background/room10.png", this));
-        addScene(4, new EndScene(this));
+        addScene(11, new EndScene(this));
     }
 
 

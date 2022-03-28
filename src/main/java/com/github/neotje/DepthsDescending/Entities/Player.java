@@ -4,7 +4,6 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
-import com.github.hanyaeger.api.entities.Newtonian;
 import com.github.hanyaeger.api.entities.SceneBorderTouchingWatcher;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
@@ -15,14 +14,14 @@ import javafx.scene.input.KeyCode;
 
 import java.util.Set;
 
-public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, Newtonian, Combat, Collider {
+public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, Combat, Collider {
     private int attack;
     private int toughness;
     private double speed;
     public int roomNR;
     DepthsDescending depthsDescending;
     public Player(int attack, int toughness, double speed, Coordinate2D initialLocation,DepthsDescending depthsDescending) {
-        super("background/hanny.png", initialLocation, new Size(50, 50));
+        super("background/hanny1.0.png", initialLocation, new Size(50, 100), 1, 2);
         this.depthsDescending = depthsDescending;
         this.attack = attack;
         this.toughness = toughness;

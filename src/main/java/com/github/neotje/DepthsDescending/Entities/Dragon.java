@@ -58,8 +58,10 @@ public class Dragon extends Enemy implements UpdateExposer{
 
     @Override
     public void onCollision(Collider collider) {
-        System.out.println("head");
-        ((Combat) collider).doeDamage(this.attack);
+        if(collider instanceof Player){
+            System.out.println("head");
+            ((Combat) collider).doeDamage(this.attack);
+        }
     }
 
     @Override
