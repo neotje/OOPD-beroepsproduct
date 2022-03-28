@@ -6,5 +6,6 @@ module OOPD.beroepsproduct {
 
     opens background;
     opens fonts;
+    opens textures;
     opens textures.dragon;
 }
