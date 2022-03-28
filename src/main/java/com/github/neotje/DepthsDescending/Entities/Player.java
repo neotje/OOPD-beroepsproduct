@@ -32,9 +32,9 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     private final int[] boundary = {
             104, //left
-            528, //right
+            558, //right
             102, //top
-            349 // bottom
+            329 // bottom
     };
 
     public Player(int attack, int toughness, double speed, Coordinate2D initialLocation, DepthsDescending depthsDescending) {
