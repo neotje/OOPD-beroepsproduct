@@ -11,7 +11,7 @@ import com.github.neotje.DepthsDescending.Scenes.TitleScene;
 import com.github.neotje.DepthsDescending.Entities.Player;
 
 public class DepthsDescending extends YaegerGame {
-    public Player player1 = new Player(10,10, 3, new Coordinate2D(316, 349), this);
+    public Player player1 = new Player(10,10, 5, new Coordinate2D(316, 349), this);
     public CustomFont ringbearerTitle = new CustomFont("fonts/FONT.TTF", 60);
     public CustomFont ringbearerParagraph = new CustomFont("fonts/FONT.TTF", 20);
     public CustomFont ringbearerStats = new CustomFont("fonts/FONT.TTF", 15);

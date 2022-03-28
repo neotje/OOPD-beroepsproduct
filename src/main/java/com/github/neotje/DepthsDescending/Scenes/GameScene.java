@@ -9,6 +9,7 @@ import com.github.neotje.DepthsDescending.Entities.Door;
 import com.github.neotje.DepthsDescending.Entities.Dragon;
 import com.github.neotje.DepthsDescending.Entities.Goblin;
 import com.github.neotje.DepthsDescending.Entities.Skeleton;
+import com.github.neotje.DepthsDescending.Entities.DragonClaw;
 import com.github.neotje.DepthsDescending.Sprites.Icons.Icons;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -69,19 +70,23 @@ public class GameScene extends DynamicScene {
         if(depthsDescending.player1.roomNR != 10 && depthsDescending.player1.roomNR != 9){
             addEntity(doorLeft);
             addEntity(doorRight);
-            var goblin = new Goblin(new Coordinate2D(getWidth()/2, getHeight()/2) , 1, 10);
+            var goblin = new Goblin(new Coordinate2D(getWidth()/2, (getHeight()/2)-100) , 1, 10);
             addEntity(goblin);
         }
         if(depthsDescending.player1.roomNR == 9){
             addEntity(bossGate);
-            var skeleton1 = new Skeleton(new Coordinate2D(getWidth()/2, getHeight()/2) , 10, 10);
-            var skeleton2 = new Skeleton(new Coordinate2D(getWidth()/2, getHeight()/2) , 10, 10);
-            //addEntity(skeleton1);
-            //addEntity(skeleton2);
+            var skeleton1 = new Skeleton(new Coordinate2D((getWidth()/2)-100, (getHeight()/2)-100) , 10, 10);
+            var skeleton2 = new Skeleton(new Coordinate2D((getWidth()/2)+100, (getHeight()/2)-100) , 10, 10);
+            addEntity(skeleton1);
+            addEntity(skeleton2);
         }
         if(depthsDescending.player1.roomNR == 10) {
             var dragon = new Dragon(new Coordinate2D(getWidth()/2, getHeight()/2) , 100, 100);
+            var dragonClawL = new DragonClaw(new Coordinate2D((getWidth()/2)+150, (getHeight()/2)-130), 10, 10, "textures/dragon/DragonClawL.png");
+            var dragonClawR = new DragonClaw(new Coordinate2D((getWidth()/2)-150, (getHeight()/2)-130), 10, 10, "textures/dragon/DragonClawR.png");
             addEntity(dragon);
+            addEntity(dragonClawL);
+            addEntity(dragonClawR);
         }
     }
     /*
