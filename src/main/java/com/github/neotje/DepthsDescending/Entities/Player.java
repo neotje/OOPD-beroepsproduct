@@ -38,7 +38,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     };
 
     public Player(int attack, int toughness, double speed, Coordinate2D initialLocation, DepthsDescending depthsDescending) {
-        super("textures/hanny.png", initialLocation, new Size(50, 100), 1, 2);
+        super("textures/player.png", initialLocation, new Size(30, 60), 1, 2);
         this.depthsDescending = depthsDescending;
         this.attack = attack;
         this.toughness = toughness;
@@ -53,20 +53,26 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
         if (pressedKeys.contains(KeyCode.W) && pressedKeys.contains(KeyCode.D)) {
             setMotion(this.speed, 180d - 45d);
+            setCurrentFrameIndex(1);
         } else if (pressedKeys.contains(KeyCode.D) && pressedKeys.contains(KeyCode.S)) {
             setMotion(this.speed, 90d - 45d);
+            setCurrentFrameIndex(1);
         } else if (pressedKeys.contains(KeyCode.S) && pressedKeys.contains(KeyCode.A)) {
             setMotion(this.speed, -45d);
+            setCurrentFrameIndex(0);
         } else if (pressedKeys.contains(KeyCode.A) && pressedKeys.contains(KeyCode.W)) {
             setMotion(this.speed, 270d - 45d);
+            setCurrentFrameIndex(0);
         } else if (pressedKeys.contains(KeyCode.W) && !touchingSide.contains(Side.TOP)) {
             setMotion(this.speed, 180d);
         } else if (pressedKeys.contains(KeyCode.D) && !touchingSide.contains(Side.RIGHT)) {
             setMotion(this.speed, 90d);
+            setCurrentFrameIndex(1);
         } else if (pressedKeys.contains(KeyCode.S) && !touchingSide.contains(Side.BOTTOM)) {
             setMotion(this.speed, 0d);
         } else if (pressedKeys.contains(KeyCode.A)) {
             setMotion(this.speed, 270d);
+            setCurrentFrameIndex(0);
         }
     }
 
