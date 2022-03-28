@@ -70,7 +70,7 @@ public class GameScene extends DynamicScene {
             addEntity(doorLeft);
             addEntity(doorRight);
             var goblin = new Goblin(new Coordinate2D(getWidth()/2, getHeight()/2) , 1, 10);
-            //addEntity(goblin);
+            addEntity(goblin);
         }
         if(depthsDescending.player1.roomNR == 9){
             addEntity(bossGate);
