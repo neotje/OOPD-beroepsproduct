@@ -144,12 +144,30 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         } else if(collidingObject instanceof Door){
             roomNR++;
             setAnchorLocation(new Coordinate2D(316, 349));
+            ((Door) collidingObject).upgradeStat();
             depthsDescending.setActiveScene(roomNR);
         }
+
     }
 
     @Override
     public void doeDamage(int attackStrength) {
         this.toughness -= attackStrength;
+    }
+
+    public void setAttack(int newAttack){
+        attack += newAttack;
+    }
+
+    public int getAttack(){
+        return attack;
+    }
+
+    public void setToughness(int newToughness){
+        toughness += newToughness;
+    }
+
+    public int getToughness(){
+        return toughness;
     }
 }
