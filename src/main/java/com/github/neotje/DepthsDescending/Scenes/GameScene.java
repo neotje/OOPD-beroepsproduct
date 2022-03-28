@@ -1,6 +1,7 @@
 package com.github.neotje.DepthsDescending.Scenes;
 
 import com.github.hanyaeger.api.Coordinate2D;
+import com.github.hanyaeger.api.entities.impl.CustomFont;
 import com.github.hanyaeger.api.entities.impl.TextEntity;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.neotje.DepthsDescending.DepthsDescending;
@@ -8,6 +9,10 @@ import com.github.neotje.DepthsDescending.Entities.Door;
 import com.github.neotje.DepthsDescending.Entities.Dragon;
 import com.github.neotje.DepthsDescending.Entities.Goblin;
 import com.github.neotje.DepthsDescending.Entities.Skeleton;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 
 public class GameScene extends DynamicScene {
     protected String location;
@@ -27,18 +32,31 @@ public class GameScene extends DynamicScene {
     @Override
     public void setupEntities() {
         // var for the doors
-        var doorLeft = new Door(new Coordinate2D((getWidth()/2)-230, (getHeight()/2)-40), 50, 20);
-        var doorRight = new Door(new Coordinate2D((getWidth()/2)+230, (getHeight()/2)-40), 50, 20);
-        var bossGate = new Door(new Coordinate2D(getWidth()/2, (getHeight()/2)-160),20, 100);
+        var doorLeft = new Door(new Coordinate2D((getWidth()/2)-230, (getHeight()/2)-40), 50, 20, depthsDescending, 1);
+        var doorRight = new Door(new Coordinate2D((getWidth()/2)+230, (getHeight()/2)-40), 50, 20, depthsDescending, 2);
+        var bossGate = new Door(new Coordinate2D(getWidth()/2, (getHeight()/2)-160),20, 100, depthsDescending);
 
         //add the player to the scene
         addEntity(depthsDescending.player1);
 
         //add the roomnr to the scene
 
-        var roomText = new TextEntity(new Coordinate2D(0, 0), "Room: " + depthsDescending.player1.roomNR);
-
+        var roomText = new TextEntity(new Coordinate2D(0, 0), "Room " + depthsDescending.player1.roomNR);
+        roomText.setFill(Color.WHITE);
+        roomText.setFont(depthsDescending.ringbearerParagraph);
         addEntity(roomText);
+
+        var attackText = new TextEntity(new Coordinate2D(getWidth()-getWidth(), getHeight()-60), "Attack " + depthsDescending.player1.getAttack());
+        attackText.setFill(Color.WHITE);
+        attackText.setFont(depthsDescending.ringbearerStats);
+        addEntity(attackText);
+
+        var toughnessText = new TextEntity(new Coordinate2D(getWidth()-getWidth(), getHeight()-40), "Toughness " + depthsDescending.player1.getToughness());
+        toughnessText.setFill(Color.WHITE);
+        toughnessText.setFont(depthsDescending.ringbearerStats);
+        addEntity(toughnessText);
+
+        // add enemy entities
         if(depthsDescending.player1.roomNR != 10 && depthsDescending.player1.roomNR != 9){
             addEntity(doorLeft);
             addEntity(doorRight);

@@ -2,6 +2,7 @@ package com.github.neotje.DepthsDescending.Scenes;
 
 import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
+import com.github.hanyaeger.api.entities.impl.CustomFont;
 import com.github.hanyaeger.api.entities.impl.TextEntity;
 import com.github.hanyaeger.api.scenes.StaticScene;
 import com.github.neotje.DepthsDescending.DepthsDescending;
@@ -26,7 +27,7 @@ public class TitleScene extends StaticScene {
         var titleText = new TextEntity(new Coordinate2D(getWidth()/2, getHeight()/2), "Depths Descending");
 
         titleText.setAnchorPoint(AnchorPoint.CENTER_CENTER);
-        titleText.setFont(Font.font("fonts/RINGM___.tiff", FontWeight.SEMI_BOLD, 80));
+        titleText.setFont(depthsDescending.ringbearerTitle);
         Button startButton = new Button(new Coordinate2D(getWidth()/2, getHeight()/2 + 60), depthsDescending, 1, "Start game");
         startButton.setAnchorPoint(AnchorPoint.CENTER_CENTER);
 
