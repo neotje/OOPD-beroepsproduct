@@ -2,6 +2,7 @@ package com.github.neotje.DepthsDescending.Entities;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
+import com.github.hanyaeger.api.UpdateExposer;
 import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.SceneBorderTouchingWatcher;
@@ -12,15 +13,31 @@ import com.github.neotje.DepthsDescending.DepthsDescending;
 import com.github.neotje.DepthsDescending.Scenes.GameScene;
 import javafx.scene.input.KeyCode;
 
+import java.util.HashSet;
 import java.util.Set;
 
-public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, Combat, Collider {
+public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, Combat, Collider, UpdateExposer {
     private int attack;
     private int toughness;
     private double speed;
     public int roomNR;
     DepthsDescending depthsDescending;
-    public Player(int attack, int toughness, double speed, Coordinate2D initialLocation,DepthsDescending depthsDescending) {
+
+    enum Side {
+        LEFT,
+        RIGHT,
+        TOP,
+        BOTTOM
+    }
+
+    private final int[] boundary = {
+            104, //left
+            528, //right
+            102, //top
+            349 // bottom
+    };
+
+    public Player(int attack, int toughness, double speed, Coordinate2D initialLocation, DepthsDescending depthsDescending) {
         super("textures/hanny.png", initialLocation, new Size(50, 100), 1, 2);
         this.depthsDescending = depthsDescending;
         this.attack = attack;
@@ -30,7 +47,10 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     }
 
     public void Movement(Set<KeyCode> pressedKeys) {
-        mapBoundary();
+        Set<Side> touchingSide = isTouchingBoundary();
+
+        setSpeed(0);
+
         if (pressedKeys.contains(KeyCode.W) && pressedKeys.contains(KeyCode.D)) {
             setMotion(this.speed, 180d - 45d);
         } else if (pressedKeys.contains(KeyCode.D) && pressedKeys.contains(KeyCode.S)) {
@@ -39,15 +59,51 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
             setMotion(this.speed, -45d);
         } else if (pressedKeys.contains(KeyCode.A) && pressedKeys.contains(KeyCode.W)) {
             setMotion(this.speed, 270d - 45d);
-        } else if (pressedKeys.contains(KeyCode.W)) {
+        } else if (pressedKeys.contains(KeyCode.W) && !touchingSide.contains(Side.TOP)) {
             setMotion(this.speed, 180d);
-        } else if (pressedKeys.contains(KeyCode.D)) {
+        } else if (pressedKeys.contains(KeyCode.D) && !touchingSide.contains(Side.RIGHT)) {
             setMotion(this.speed, 90d);
-        } else if (pressedKeys.contains(KeyCode.S)) {
+        } else if (pressedKeys.contains(KeyCode.S) && !touchingSide.contains(Side.BOTTOM)) {
             setMotion(this.speed, 0d);
         } else if (pressedKeys.contains(KeyCode.A)) {
             setMotion(this.speed, 270d);
         }
+    }
+
+    public void mapBoundary(){
+        Set<Side> touchingSide = isTouchingBoundary();
+
+        if(touchingSide.contains(Side.LEFT)) {
+            setAnchorLocationX(boundary[0]);
+        }
+        if(touchingSide.contains(Side.RIGHT)) {
+            setAnchorLocationX(boundary[1]);
+        }
+        if(touchingSide.contains(Side.TOP)) {
+            setAnchorLocationY(boundary[2]);
+        }
+        if(touchingSide.contains(Side.BOTTOM)) {
+            setAnchorLocationY(boundary[3]);
+        }
+    }
+
+    private Set<Side> isTouchingBoundary() {
+        Set<Side> sides = new HashSet<Side>();
+
+        if(getAnchorLocation().getX() <= boundary[0]){
+            sides.add(Side.LEFT);
+        }
+        if(getAnchorLocation().getX() >= boundary[1]){
+            sides.add(Side.RIGHT);
+        }
+        if(getAnchorLocation().getY() <= boundary[2]){
+            sides.add(Side.TOP);
+        }
+        if(getAnchorLocation().getY() >= boundary[3]) {
+            sides.add(Side.BOTTOM);
+        }
+
+        return sides;
     }
 
     @Override
@@ -55,21 +111,11 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         this.Movement(pressedKeys);
     }
 
-
-    public void mapBoundary(){
-        //System.out.println(getAnchorLocation());
-        setSpeed(0);
-        if(getAnchorLocation().getX() <= 104){
-            setAnchorLocationX(105);
-        } else if(getAnchorLocation().getX() >= 528){
-            setAnchorLocationX(527);
-        } else if(getAnchorLocation().getY() <= 102){
-            setAnchorLocationY(101);
-        } else if(getAnchorLocation().getY() >= 349){
-            setAnchorLocationY(349);
-        }
-
+    @Override
+    public void explicitUpdate(long timestamp) {
+        mapBoundary();
     }
+
     @Override
     public void notifyBoundaryTouching(SceneBorder border) {
         setSpeed(0);
