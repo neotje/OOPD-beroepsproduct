@@ -4,9 +4,8 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.YaegerGame;
 import com.github.hanyaeger.api.entities.impl.CustomFont;
-import com.github.neotje.DepthsDescending.Rooms.Room;
 import com.github.neotje.DepthsDescending.Scenes.EndScene;
-import com.github.neotje.DepthsDescending.Scenes.GameScene;
+import com.github.neotje.DepthsDescending.Scenes.RoomScene;
 import com.github.neotje.DepthsDescending.Scenes.TitleScene;
 import com.github.neotje.DepthsDescending.Entities.Player;
 
@@ -17,7 +16,8 @@ public class DepthsDescending extends YaegerGame {
     public CustomFont ringbearerStats = new CustomFont("fonts/FONT.TTF", 15);
 
     public static void main(String[] args) {
-        launch(args); }
+        launch(args);
+    }
 
     @Override
     public void setupGame() {
@@ -28,16 +28,16 @@ public class DepthsDescending extends YaegerGame {
     @Override
     public void setupScenes() {
         addScene(0, new TitleScene(this));
-        addScene(1, new Room("background/room.png", this));
-        addScene(2, new Room("background/room.png", this));
-        addScene(3, new Room("background/room.png", this));
-        addScene(4, new Room("background/room.png", this));
-        addScene(5, new Room("background/room.png", this));
-        addScene(6, new Room("background/room.png", this));
-        addScene(7, new Room("background/room.png", this));
-        addScene(8, new Room("background/room.png", this));
-        addScene(9, new Room("background/room9.png", this));
-        addScene(10, new Room("background/room10.png", this));
+        addScene(1, new RoomScene("background/room.png", this, 0));
+        addScene(2, new RoomScene("background/room.png", this, 1));
+        addScene(3, new RoomScene("background/room.png", this, 2));
+        addScene(4, new RoomScene("background/room.png", this, 3));
+        addScene(5, new RoomScene("background/room.png", this, 4));
+        addScene(6, new RoomScene("background/room.png", this, 5));
+        addScene(7, new RoomScene("background/room.png", this, 6));
+        addScene(8, new RoomScene("background/room.png", this, 7));
+        addScene(9, new RoomScene("background/room9.png", this, 8));
+        addScene(10, new RoomScene("background/room10.png", this, 9));
         addScene(11, new EndScene(this));
     }
 }

@@ -1,7 +1,6 @@
 package com.github.neotje.DepthsDescending.Scenes;
 
 import com.github.hanyaeger.api.Coordinate2D;
-import com.github.hanyaeger.api.entities.impl.CustomFont;
 import com.github.hanyaeger.api.entities.impl.TextEntity;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.neotje.DepthsDescending.DepthsDescending;
@@ -12,22 +11,29 @@ import com.github.neotje.DepthsDescending.Entities.Skeleton;
 import com.github.neotje.DepthsDescending.Entities.DragonClaw;
 import com.github.neotje.DepthsDescending.Sprites.Icons.Icons;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 
-public class GameScene extends DynamicScene {
-    protected String location;
+public class RoomScene extends DynamicScene {
+    protected String background;
     protected DepthsDescending depthsDescending;
+    private int roomNr;
 
+    private TextEntity attackText;
+    private TextEntity toughnessText;
 
-    public GameScene(String location, DepthsDescending depthsDescending){
-        this.location = location;
+    public RoomScene(String background, DepthsDescending depthsDescending, int roomNr){
+        this.background = background;
         this.depthsDescending = depthsDescending;
+        this.roomNr = roomNr;
     }
+
+    public void updatePlayerStats() {
+        attackText.setText("" + depthsDescending.player1.getAttack());
+        toughnessText.setText("" + depthsDescending.player1.getToughness());
+    }
+
     @Override
     public void setupScene() {
-        setBackgroundImage(location);
+        setBackgroundImage(background);
 
     }
 
@@ -39,11 +45,12 @@ public class GameScene extends DynamicScene {
         var bossGate = new Door(new Coordinate2D(getWidth()/2, (getHeight()/2)-160),20, 100, depthsDescending);
 
         //add the player to the scene
+        depthsDescending.player1.setCurrentRoom(this);
         addEntity(depthsDescending.player1);
 
         //add the roomnr to the scene
 
-        var roomText = new TextEntity(new Coordinate2D(0, 0), "Room " + depthsDescending.player1.roomNR);
+        var roomText = new TextEntity(new Coordinate2D(0, 0), "Room " + roomNr);
         roomText.setFill(Color.WHITE);
         roomText.setFont(depthsDescending.ringbearerParagraph);
         addEntity(roomText);
@@ -53,7 +60,7 @@ public class GameScene extends DynamicScene {
         var attackIcon = new Icons("textures/sword.png", new Coordinate2D(getWidth()-getWidth(), getHeight()-60));
         addEntity(attackIcon);
 
-        var attackText = new TextEntity(new Coordinate2D(getWidth()-getWidth() + 20, getHeight()-60), "" + depthsDescending.player1.getAttack());
+        attackText = new TextEntity(new Coordinate2D(getWidth()-getWidth() + 20, getHeight()-60), "" + depthsDescending.player1.getAttack());
         attackText.setFill(Color.WHITE);
         attackText.setFont(depthsDescending.ringbearerStats);
         addEntity(attackText);
@@ -61,7 +68,7 @@ public class GameScene extends DynamicScene {
         var toughnessIcon = new Icons("textures/shield.png", new Coordinate2D(getWidth()-getWidth(), getHeight()-40));
         addEntity(toughnessIcon);
 
-        var toughnessText = new TextEntity(new Coordinate2D(getWidth()-getWidth()+20, getHeight()-40), "" + depthsDescending.player1.getToughness());
+        toughnessText = new TextEntity(new Coordinate2D(getWidth()-getWidth()+20, getHeight()-40), "" + depthsDescending.player1.getToughness());
         toughnessText.setFill(Color.WHITE);
         toughnessText.setFont(depthsDescending.ringbearerStats);
         addEntity(toughnessText);

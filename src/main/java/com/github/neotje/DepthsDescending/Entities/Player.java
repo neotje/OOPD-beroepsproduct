@@ -11,6 +11,7 @@ import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
 import com.github.neotje.DepthsDescending.DepthsDescending;
 import com.github.neotje.DepthsDescending.GamePlay.Combat;
+import com.github.neotje.DepthsDescending.Scenes.RoomScene;
 import javafx.scene.input.KeyCode;
 
 import java.util.HashSet;
@@ -20,7 +21,10 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     private int attack;
     private int toughness;
     private double speed;
+
     public int roomNR;
+    private RoomScene currentRoom = null;
+
     DepthsDescending depthsDescending;
 
     enum Side {
@@ -44,6 +48,10 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         this.toughness = toughness;
         this.speed = speed;
         roomNR++;
+    }
+
+    public void setCurrentRoom(RoomScene currentRoom) {
+        this.currentRoom = currentRoom;
     }
 
     public void Movement(Set<KeyCode> pressedKeys) {
@@ -153,13 +161,16 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
             ((Door) collidingObject).upgradeStat();
             depthsDescending.setActiveScene(roomNR);
         }
-
     }
 
 
     @Override
     public void doeDamage(int attackStrength) {
-        this.toughness -= attackStrength;
+        toughness -= attackStrength;
+
+        if(currentRoom != null) {
+            currentRoom.updatePlayerStats();
+        }
     }
 
     public void setAttack(int newAttack){
