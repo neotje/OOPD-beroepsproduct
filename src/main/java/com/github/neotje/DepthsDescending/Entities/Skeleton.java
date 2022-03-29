@@ -29,6 +29,11 @@ public class Skeleton extends Enemy{
         this.toughness -= attackStrength;
 
         if (this.toughness <= 0) {
+            depthsDescending.keyShards++;
+            System.out.println("You found a keyshard!");
+            if(depthsDescending.keyShards == 2){
+                System.out.println("You made a key!");
+            }
             depthsDescending.player1.setAttack(2);
             depthsDescending.player1.setBaseToughness(2);
             this.remove();
