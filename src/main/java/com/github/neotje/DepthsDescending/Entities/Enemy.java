@@ -55,4 +55,12 @@ public abstract class Enemy extends DynamicCompositeEntity implements Combat, Co
             setCoolingDown(true);
         }
     }
+
+    public int getAttack(){
+        return attack;
+    }
+
+    public int getToughness() {
+        return toughness;
+    }
 }
