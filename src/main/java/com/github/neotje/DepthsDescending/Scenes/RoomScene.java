@@ -12,6 +12,8 @@ import com.github.neotje.DepthsDescending.Entities.DragonClaw;
 import com.github.neotje.DepthsDescending.Sprites.Icons.Icons;
 import javafx.scene.paint.Color;
 
+import java.util.Random;
+
 public class RoomScene extends DynamicScene {
     protected String background;
     protected DepthsDescending depthsDescending;
@@ -77,7 +79,14 @@ public class RoomScene extends DynamicScene {
         if(depthsDescending.player1.roomNR != 10 && depthsDescending.player1.roomNR != 9){
             addEntity(doorLeft);
             addEntity(doorRight);
-            var goblin = new Goblin(new Coordinate2D(getWidth()/2, (getHeight()/2)-100) , 1, 10);
+
+            Random var = new Random();
+
+            int attack = var.nextInt(1,5);
+            int toughness = var.nextInt(5,10);
+            var goblin = new Goblin(new Coordinate2D(getWidth()/2, (getHeight()/2)-100) , attack, toughness);
+            System.out.println(goblin.getAttack());
+            System.out.println(goblin.getToughness());
             addEntity(goblin);
         }
         if(depthsDescending.player1.roomNR == 9){

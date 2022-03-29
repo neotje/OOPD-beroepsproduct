@@ -2,7 +2,6 @@ package com.github.neotje.DepthsDescending.Entities;
 
 import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
-import com.github.hanyaeger.api.entities.Collider;
 import com.github.neotje.DepthsDescending.GamePlay.Combat;
 import com.github.neotje.DepthsDescending.Sprites.GoblinSprite;
 
