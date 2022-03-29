@@ -34,6 +34,7 @@ public class DragonClaw extends Enemy{
         if (this.toughness <= 0) {
             dragon.toughness = dragon.toughness/2;
             dragon.attack = dragon.attack/2;
+            System.out.println("dragon - attack: " + dragon.getAttack() + " toughness: " + dragon.getToughness());
             this.remove();
         }
     }

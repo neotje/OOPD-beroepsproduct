@@ -52,7 +52,7 @@ public class RoomScene extends DynamicScene {
 
         //add the roomnr to the scene
 
-        var roomText = new TextEntity(new Coordinate2D(0, 0), "Room " + roomNr);
+        var roomText = new TextEntity(new Coordinate2D(0, 0), "Room " + (roomNr + 1));
         roomText.setFill(Color.WHITE);
         roomText.setFont(depthsDescending.ringbearerParagraph);
         addEntity(roomText);
@@ -109,6 +109,9 @@ public class RoomScene extends DynamicScene {
             addEntity(dragon);
             addEntity(dragonClawL);
             addEntity(dragonClawR);
+            System.out.println("dragon - attack: " + dragon.getAttack() + " toughness: " + dragon.getToughness());
+            System.out.println("dclawleft - attack: " + dragonClawL.getAttack() + " toughness: " + dragonClawL.getToughness());
+            System.out.println("dclawright attack: " + dragonClawR.getAttack() + " toughness: " + dragonClawR.getToughness());
         }
     }
     /*
