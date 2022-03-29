@@ -104,8 +104,8 @@ public class RoomScene extends DynamicScene {
         }
         if(depthsDescending.player1.roomNR == 10) {
             var dragon = new Dragon(new Coordinate2D(getWidth()/2, getHeight()/2) , 100, 100, depthsDescending);
-            var dragonClawL = new DragonClaw(new Coordinate2D((getWidth()/2)+150, (getHeight()/2)-130), 10, 10, "textures/dragon/DragonClawL.png", depthsDescending);
-            var dragonClawR = new DragonClaw(new Coordinate2D((getWidth()/2)-150, (getHeight()/2)-130), 10, 10, "textures/dragon/DragonClawR.png", depthsDescending);
+            var dragonClawL = new DragonClaw(new Coordinate2D((getWidth()/2)+150, (getHeight()/2)-130), 10, 10, "textures/dragon/DragonClawL.png", depthsDescending, dragon);
+            var dragonClawR = new DragonClaw(new Coordinate2D((getWidth()/2)-150, (getHeight()/2)-130), 10, 10, "textures/dragon/DragonClawR.png", depthsDescending, dragon);
             addEntity(dragon);
             addEntity(dragonClawL);
             addEntity(dragonClawR);
