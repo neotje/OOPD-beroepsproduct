@@ -27,7 +27,7 @@ public class Goblin extends Enemy implements Combat {
         GoblinSprite goblin = new GoblinSprite(new Coordinate2D(0, 0), "textures/goblin.png");
         goblin.setAnchorPoint(AnchorPoint.CENTER_CENTER);
 
-        var toughnessIcon = new Icons("textures/shield.png", new Coordinate2D(30, -40));
+        var toughnessIcon = new Icons("textures/shield.png", new Coordinate2D(0, -40));
         toughnessIcon.setAnchorPoint(AnchorPoint.TOP_RIGHT);
         //addEntity(toughnessIcon);
 
@@ -43,6 +43,8 @@ public class Goblin extends Enemy implements Combat {
         healthBar.updateStats(this.toughness, this.attack);
 
         if (this.toughness <= 0) {
+            depthsDescending.player1.setAttack(1);
+            depthsDescending.player1.setBaseToughness(1);
             this.remove();
         }
     }

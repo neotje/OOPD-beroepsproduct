@@ -29,13 +29,13 @@ public class HealthBar extends DynamicCompositeEntity {
 
     @Override
     protected void setupEntities() {
-        var toughnessIcon = new Icons("textures/shield.png", new Coordinate2D(0, 0));
-        addEntity(toughnessIcon);
-        toughnessText = new TextEntity(new Coordinate2D(20, 0));
-
-        var attackIcon = new Icons("textures/sword.png", new Coordinate2D(40, 0));
+        var attackIcon = new Icons("textures/sword.png", new Coordinate2D(0, 0));
         addEntity(attackIcon);
-        attackText = new TextEntity(new Coordinate2D(60, 0));
+        attackText = new TextEntity(new Coordinate2D(20, 0));
+
+        var toughnessIcon = new Icons("textures/shield.png", new Coordinate2D(40, 0));
+        addEntity(toughnessIcon);
+        toughnessText = new TextEntity(new Coordinate2D(60, 0));
 
         toughnessText.setFill(Color.WHITE);
         attackText.setFill(Color.WHITE);
