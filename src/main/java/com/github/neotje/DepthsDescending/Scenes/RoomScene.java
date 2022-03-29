@@ -79,7 +79,7 @@ public class RoomScene extends DynamicScene {
         if(depthsDescending.player1.roomNR != 10 && depthsDescending.player1.roomNR != 9){
             addEntity(doorLeft);
             addEntity(doorRight);
-            var goblin = new Goblin(new Coordinate2D(getWidth()/2, (getHeight()/2)-100) , 1, 10);
+            var goblin = new Goblin(new Coordinate2D(getWidth()/2, (getHeight()/2)-100) , 1, 10, depthsDescending);
             addEntity(goblin);
         }
         if(depthsDescending.player1.roomNR == 9){
