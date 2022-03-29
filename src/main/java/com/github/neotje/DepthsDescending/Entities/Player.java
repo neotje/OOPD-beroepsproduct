@@ -173,6 +173,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
             setCoolingDown(true);
             ((Combat) collidingObject).doeDamage(this.attack);
         } else if(collidingObject instanceof Door){
+            setCoolingDown(false);
             roomNR++;
             setAnchorLocation(new Coordinate2D(316, 349));
             ((Door) collidingObject).upgradeStat();
