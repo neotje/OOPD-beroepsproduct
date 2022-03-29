@@ -199,6 +199,10 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         if(currentRoom != null) {
             currentRoom.updatePlayerStats();
         }
+        if(this.toughness <= 0){
+            this.remove();
+            depthsDescending.setActiveScene(11);
+        }
     }
 
     public void setAttack(int newAttack){

@@ -28,11 +28,23 @@ public class Goblin extends Enemy implements Combat {
         GoblinSprite goblin = new GoblinSprite(new Coordinate2D(0, 0), "textures/goblin.png");
         goblin.setAnchorPoint(AnchorPoint.CENTER_CENTER);
 
-        var toughnessIcon = new Icons("textures/shield.png", new Coordinate2D(0, -40));
+        var attackIcon = new Icons("textures/sword.png", new Coordinate2D(0, -40));
+        attackIcon.setAnchorPoint(AnchorPoint.TOP_RIGHT);
+        addEntity(attackIcon);
+
+
+        attackText = new TextEntity(new Coordinate2D(0, -40), "" + attack);
+        attackText.setFill(Color.WHITE);
+        attackText.setFont(depthsDescending.ringbearerStats);
+        addEntity(attackText);
+
+        var toughnessIcon = new Icons("textures/shield.png", new Coordinate2D(30, -40));
         toughnessIcon.setAnchorPoint(AnchorPoint.TOP_RIGHT);
         addEntity(toughnessIcon);
 
-        toughnessText = new TextEntity(new Coordinate2D(0, -40), "" + toughness);
+
+
+        toughnessText = new TextEntity(new Coordinate2D(30, -40), "" + toughness);
         toughnessText.setFill(Color.WHITE);
         toughnessText.setFont(depthsDescending.ringbearerStats);
         addEntity(toughnessText);
