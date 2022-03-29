@@ -4,16 +4,16 @@ import com.github.hanyaeger.api.Timer;
 import com.github.neotje.DepthsDescending.Entities.Enemy;
 
 public class CoolDownTimer extends Timer {
-    private Enemy enemy;
+    private Combat entity;
 
-    public CoolDownTimer(Enemy enemy) {
-        super(enemy.getAttackCoolDown());
-        this.enemy = enemy;
+    public CoolDownTimer(Combat entity) {
+        super(entity.getAttackCoolDown());
+        this.entity = entity;
     }
 
     @Override
     public void onAnimationUpdate(long timestamp) {
-        enemy.setCoolingDown(false);
+        entity.setCoolingDown(false);
         pause();
     }
 }

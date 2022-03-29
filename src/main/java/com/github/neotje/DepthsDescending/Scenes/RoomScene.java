@@ -77,20 +77,20 @@ public class RoomScene extends DynamicScene {
         if(depthsDescending.player1.roomNR != 10 && depthsDescending.player1.roomNR != 9){
             addEntity(doorLeft);
             addEntity(doorRight);
-            var goblin = new Goblin(new Coordinate2D(getWidth()/2, (getHeight()/2)-100) , 1, 10);
+            var goblin = new Goblin(new Coordinate2D(getWidth()/2, (getHeight()/2)-100) , 1, 10, depthsDescending);
             addEntity(goblin);
         }
         if(depthsDescending.player1.roomNR == 9){
             addEntity(bossGate);
-            var skeleton1 = new Skeleton(new Coordinate2D((getWidth()/2)-100, (getHeight()/2)-100) , 10, 10);
-            var skeleton2 = new Skeleton(new Coordinate2D((getWidth()/2)+100, (getHeight()/2)-100) , 10, 10);
+            var skeleton1 = new Skeleton(new Coordinate2D((getWidth()/2)-100, (getHeight()/2)-100) , 10, 10, depthsDescending);
+            var skeleton2 = new Skeleton(new Coordinate2D((getWidth()/2)+100, (getHeight()/2)-100) , 10, 10, depthsDescending);
             addEntity(skeleton1);
             addEntity(skeleton2);
         }
         if(depthsDescending.player1.roomNR == 10) {
-            var dragon = new Dragon(new Coordinate2D(getWidth()/2, getHeight()/2) , 100, 100);
-            var dragonClawL = new DragonClaw(new Coordinate2D((getWidth()/2)+150, (getHeight()/2)-130), 10, 10, "textures/dragon/DragonClawL.png");
-            var dragonClawR = new DragonClaw(new Coordinate2D((getWidth()/2)-150, (getHeight()/2)-130), 10, 10, "textures/dragon/DragonClawR.png");
+            var dragon = new Dragon(new Coordinate2D(getWidth()/2, getHeight()/2) , 100, 100, depthsDescending);
+            var dragonClawL = new DragonClaw(new Coordinate2D((getWidth()/2)+150, (getHeight()/2)-130), 10, 10, "textures/dragon/DragonClawL.png", depthsDescending);
+            var dragonClawR = new DragonClaw(new Coordinate2D((getWidth()/2)-150, (getHeight()/2)-130), 10, 10, "textures/dragon/DragonClawR.png", depthsDescending);
             addEntity(dragon);
             addEntity(dragonClawL);
             addEntity(dragonClawR);

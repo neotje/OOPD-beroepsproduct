@@ -2,6 +2,7 @@ package com.github.neotje.DepthsDescending.Entities;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
+import com.github.hanyaeger.api.TimerContainer;
 import com.github.hanyaeger.api.UpdateExposer;
 import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
@@ -11,13 +12,14 @@ import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
 import com.github.neotje.DepthsDescending.DepthsDescending;
 import com.github.neotje.DepthsDescending.GamePlay.Combat;
+import com.github.neotje.DepthsDescending.GamePlay.CoolDownTimer;
 import com.github.neotje.DepthsDescending.Scenes.RoomScene;
 import javafx.scene.input.KeyCode;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, Combat, Collider, UpdateExposer {
+public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, Combat, Collider, UpdateExposer, TimerContainer {
     private int attack;
     private int toughness;
     private double speed;
@@ -25,7 +27,18 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     public int roomNR;
     private RoomScene currentRoom = null;
 
+    CoolDownTimer coolDownTimer;
+    private int attackCoolDown = 1000;
+    private boolean isCoolingDown = false;
+
     DepthsDescending depthsDescending;
+
+    @Override
+    public void setupTimers() {
+        coolDownTimer = new CoolDownTimer(this);
+        addTimer(coolDownTimer);
+        coolDownTimer.pause();
+    }
 
     enum Side {
         LEFT,
@@ -153,7 +166,9 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     @Override
     public void onCollision(Collider collidingObject) {
-        if(collidingObject instanceof Enemy){
+        if(collidingObject instanceof Enemy && !isCoolingDown){
+            coolDownTimer.resume();
+            setCoolingDown(true);
             ((Combat) collidingObject).doeDamage(this.attack);
         } else if(collidingObject instanceof Door){
             roomNR++;
@@ -163,6 +178,16 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         }
     }
 
+
+    @Override
+    public void setCoolingDown(boolean newState) {
+        this.isCoolingDown = newState;
+    }
+
+    @Override
+    public int getAttackCoolDown() {
+        return attackCoolDown;
+    }
 
     @Override
     public void doeDamage(int attackStrength) {

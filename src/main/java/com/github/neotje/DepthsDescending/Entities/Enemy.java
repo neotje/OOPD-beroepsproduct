@@ -5,33 +5,37 @@ import com.github.hanyaeger.api.TimerContainer;
 import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
+import com.github.neotje.DepthsDescending.DepthsDescending;
 import com.github.neotje.DepthsDescending.GamePlay.Combat;
 import com.github.neotje.DepthsDescending.GamePlay.CoolDownTimer;
 
 public abstract class Enemy extends DynamicCompositeEntity implements Combat, Collider, Collided, TimerContainer {
     protected int attack;
     protected int toughness;
+    protected DepthsDescending depthsDescending;
 
     private CoolDownTimer coolDownTimer;
     private int attackCoolDown;
     private boolean isCoolingDown = false;
 
-    Enemy(Coordinate2D location, int attack, int toughness, int attackCoolDown){
+    public Enemy(Coordinate2D location, int attack, int toughness, int attackCoolDown, DepthsDescending depthsDescending){
         super(location);
         this.attack = attack;
         this.toughness = toughness;
         this.attackCoolDown = attackCoolDown;
+        this.depthsDescending = depthsDescending;
     }
 
     public int getAttackCoolDown() {
         return attackCoolDown;
     }
 
+    public abstract void onAttack(Player player);
+
+    @Override
     public void setCoolingDown(boolean newState) {
         isCoolingDown = newState;
     }
-
-    public abstract void onAttack(Player player);
 
     @Override
     public void setupTimers() {

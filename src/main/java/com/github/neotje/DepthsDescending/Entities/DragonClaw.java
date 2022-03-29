@@ -3,12 +3,13 @@ package com.github.neotje.DepthsDescending.Entities;
 import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.Collider;
+import com.github.neotje.DepthsDescending.DepthsDescending;
 
 public class DragonClaw extends Enemy{
     private String resource;
 
-    public DragonClaw(Coordinate2D location, int attack, int toughness, String resource){
-        super(location, attack, toughness, 2000);
+    public DragonClaw(Coordinate2D location, int attack, int toughness, String resource, DepthsDescending depthsDescending){
+        super(location, attack, toughness, 2000, depthsDescending);
         this.resource = resource;
     }
 
