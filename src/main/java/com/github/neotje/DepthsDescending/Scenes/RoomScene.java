@@ -79,13 +79,26 @@ public class RoomScene extends DynamicScene {
         if(depthsDescending.player1.roomNR != 10 && depthsDescending.player1.roomNR != 9){
             addEntity(doorLeft);
             addEntity(doorRight);
-            var goblin = new Goblin(new Coordinate2D(getWidth()/2, (getHeight()/2)-100) , 1, 10, depthsDescending);
+
+            Random var = new Random();
+
+            int attack = var.nextInt(1,5);
+            int toughness = var.nextInt(5,10);
+            var goblin = new Goblin(new Coordinate2D(getWidth()/2, (getHeight()/2)-100) , attack, toughness, depthsDescending);
+            System.out.println("attack: " + goblin.getAttack() + " toughness: " + goblin.getToughness());
             addEntity(goblin);
         }
         if(depthsDescending.player1.roomNR == 9){
             addEntity(bossGate);
-            var skeleton1 = new Skeleton(new Coordinate2D((getWidth()/2)-100, (getHeight()/2)-100) , 10, 10, depthsDescending);
-            var skeleton2 = new Skeleton(new Coordinate2D((getWidth()/2)+100, (getHeight()/2)-100) , 10, 10, depthsDescending);
+
+            Random var = new Random();
+            int attack = var.nextInt(15,20);
+            int toughness = var.nextInt(15,25);
+            var skeleton1 = new Skeleton(new Coordinate2D((getWidth()/2)-100, (getHeight()/2)-100) , attack, toughness, depthsDescending);
+            var skeleton2 = new Skeleton(new Coordinate2D((getWidth()/2)+100, (getHeight()/2)-100) , attack, toughness, depthsDescending);
+            System.out.println("skeleton1 - attack: " + skeleton1.getAttack() + " toughness: " + skeleton1.getToughness());
+            System.out.println("skeleton2 - attack: " + skeleton2.getAttack() + "toughness: " + skeleton2.getToughness());
+
             addEntity(skeleton1);
             addEntity(skeleton2);
         }

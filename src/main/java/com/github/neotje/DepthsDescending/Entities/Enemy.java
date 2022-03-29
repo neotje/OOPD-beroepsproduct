@@ -56,6 +56,11 @@ public abstract class Enemy extends DynamicCompositeEntity implements Combat, Co
         }
     }
 
+    @Override
+    public void doeDamage(int attackStrength){
+        
+    }
+
     public int getAttack(){
         return attack;
     }
