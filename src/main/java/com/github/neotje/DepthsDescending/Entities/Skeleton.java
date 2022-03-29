@@ -26,11 +26,10 @@ public class Skeleton extends Enemy{
 
     @Override
     public void doeDamage(int attackStrength) {
+        this.toughness -= attackStrength;
 
-    }
-
-    @Override
-    public void onCollision(Collider collider) {
-
+        if (this.toughness <= 0) {
+            this.remove();
+        }
     }
 }
