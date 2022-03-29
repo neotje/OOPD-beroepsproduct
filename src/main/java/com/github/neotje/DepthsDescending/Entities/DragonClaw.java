@@ -7,10 +7,12 @@ import com.github.neotje.DepthsDescending.DepthsDescending;
 
 public class DragonClaw extends Enemy{
     private String resource;
+    Dragon dragon;
 
-    public DragonClaw(Coordinate2D location, int attack, int toughness, String resource, DepthsDescending depthsDescending){
+    public DragonClaw(Coordinate2D location, int attack, int toughness, String resource, DepthsDescending depthsDescending, Dragon dragon){
         super(location, attack, toughness, 2000, depthsDescending);
         this.resource = resource;
+        this.dragon = dragon;
     }
 
     @Override
@@ -27,6 +29,12 @@ public class DragonClaw extends Enemy{
 
     @Override
     public void doeDamage(int attackStrength) {
+        this.toughness -= attackStrength;
 
+        if (this.toughness <= 0) {
+            dragon.toughness = dragon.toughness/2;
+            dragon.attack = dragon.attack/2;
+            this.remove();
+        }
     }
 }
