@@ -22,7 +22,7 @@ import java.util.Set;
 public class Player extends DynamicSpriteEntity implements KeyListener, SceneBorderTouchingWatcher, Collided, Combat, Collider, UpdateExposer, TimerContainer {
     private int attack;
     private int toughness;
-    private int oldToughness;
+    private int baseToughness;
     private double speed;
 
     public int roomNR;
@@ -60,6 +60,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         this.depthsDescending = depthsDescending;
         this.attack = attack;
         this.toughness = toughness;
+        this.baseToughness = toughness;
         this.speed = speed;
         roomNR++;
     }
@@ -174,8 +175,8 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         } else if(collidingObject instanceof Door){
             roomNR++;
             setAnchorLocation(new Coordinate2D(316, 349));
-            toughness = oldToughness;
             ((Door) collidingObject).upgradeStat();
+            toughness = baseToughness;
             depthsDescending.setActiveScene(roomNR);
         }
     }
@@ -208,9 +209,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         return attack;
     }
 
-    public void setToughness(int newToughness){
-        toughness += newToughness;
-    }
+    public void setBaseToughness(int addToughness) { baseToughness += addToughness; }
 
     public int getToughness(){
         return toughness;

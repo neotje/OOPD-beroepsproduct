@@ -43,7 +43,7 @@ public class Door extends RectangleEntity implements Collider, Collided{
             depthsDescending.player1.setAttack(2);
         } else if(whichDoor == 2){
             System.out.println(whichDoor);
-            depthsDescending.player1.setToughness(2);
+            depthsDescending.player1.setBaseToughness(2);
         }
     }
 }
