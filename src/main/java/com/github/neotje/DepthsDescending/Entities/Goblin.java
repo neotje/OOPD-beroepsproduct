@@ -43,6 +43,7 @@ public class Goblin extends Enemy implements Combat {
         healthBar.updateStats(this.toughness, this.attack);
 
         if (this.toughness <= 0) {
+            depthsDescending.player1.setEnemiesSlain();
             depthsDescending.player1.setAttack(1);
             depthsDescending.player1.setBaseToughness(1);
             this.remove();

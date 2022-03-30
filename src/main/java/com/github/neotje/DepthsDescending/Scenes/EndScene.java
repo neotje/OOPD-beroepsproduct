@@ -6,6 +6,7 @@ import com.github.hanyaeger.api.entities.impl.TextEntity;
 import com.github.hanyaeger.api.scenes.StaticScene;
 import com.github.neotje.DepthsDescending.DepthsDescending;
 import com.github.neotje.DepthsDescending.Sprites.Buttons.Button;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -29,6 +30,7 @@ public class EndScene extends StaticScene {
         // puts out the final time on
         var timeText = new TextEntity(new Coordinate2D(getWidth()/2, getHeight()/2), "Time played: " + depthsDescending.getTimePlayedFormatted());
         timeText.setAnchorPoint(AnchorPoint.CENTER_CENTER);
+        timeText.setFill(Color.WHITE);
         timeText.setFont(Font.font("fonts/RINGM___.tiff", FontWeight.SEMI_BOLD, 40));
         addEntity(timeText);
 
@@ -36,26 +38,30 @@ public class EndScene extends StaticScene {
 
         var itemsCollected = new TextEntity(new Coordinate2D(getWidth()/2, getHeight() + 160), "Total Items: " + enemies);
         itemsCollected.setAnchorPoint(AnchorPoint.CENTER_CENTER);
+        itemsCollected.setFill(Color.WHITE);
         itemsCollected.setFont(Font.font("fonts/RINGM___.tiff", FontWeight.SEMI_BOLD, 20));
         addEntity(itemsCollected);
 
         // Enemies slain
-        var enemiesSlain = new TextEntity(new Coordinate2D(getWidth()/2, getHeight()/2 + 40),  "Enemies Slain: " + enemies);
+        var enemiesSlain = new TextEntity(new Coordinate2D(getWidth()/2, getHeight()/2 + 40),  "Enemies Slain: " + depthsDescending.player1.getEnemiesSlain());
         enemiesSlain.setAnchorPoint(AnchorPoint.CENTER_CENTER);
+        enemiesSlain.setFill(Color.WHITE);
         enemiesSlain.setFont(Font.font("fonts/RINGM___.tiff", FontWeight.SEMI_BOLD, 20));
         addEntity(enemiesSlain);
 
         // Total end HP
 
-        var totalHP = new TextEntity(new Coordinate2D(getWidth()/2, getHeight()/2 + 80),  "Total HP: " + enemies);
-        totalHP.setAnchorPoint(AnchorPoint.CENTER_CENTER);
-        totalHP.setFont(Font.font("fonts/RINGM___.tiff", FontWeight.SEMI_BOLD, 20));
-        addEntity(totalHP);
+        var totalToughness = new TextEntity(new Coordinate2D(getWidth()/2, getHeight()/2 + 80),  "Total Toughness: " + depthsDescending.player1.getToughness());
+        totalToughness.setAnchorPoint(AnchorPoint.CENTER_CENTER);
+        totalToughness.setFill(Color.WHITE);
+        totalToughness.setFont(Font.font("fonts/RINGM___.tiff", FontWeight.SEMI_BOLD, 20));
+        addEntity(totalToughness);
 
         // Total Strength
 
-        var totalStrength = new TextEntity(new Coordinate2D(getWidth()/2, getHeight()/2 + 120),  "Total Strength: " + enemies);
+        var totalStrength = new TextEntity(new Coordinate2D(getWidth()/2, getHeight()/2 + 120),  "Total Attack: " + depthsDescending.player1.getAttack());
         totalStrength.setAnchorPoint(AnchorPoint.CENTER_CENTER);
+        totalStrength.setFill(Color.WHITE);
         totalStrength.setFont(Font.font("fonts/RINGM___.tiff", FontWeight.SEMI_BOLD, 20));
         addEntity(totalStrength);
 

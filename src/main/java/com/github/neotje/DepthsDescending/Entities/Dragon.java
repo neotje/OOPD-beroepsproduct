@@ -56,6 +56,10 @@ public class Dragon extends Enemy implements UpdateExposer{
     public void doeDamage(int attack) {
         this.toughness -= attack;
 
+        if (this.toughness <= 0) {
+            depthsDescending.player1.setEnemiesSlain();
+            this.remove();
+        }
     }
 
     @Override

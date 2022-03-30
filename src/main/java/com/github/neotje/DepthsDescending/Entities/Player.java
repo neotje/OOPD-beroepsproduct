@@ -25,6 +25,8 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     private int baseToughness;
     private double speed;
 
+    private int enemiesSlain;
+
     public int roomNR;
     private RoomScene currentRoom = null;
 
@@ -40,6 +42,8 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         addTimer(coolDownTimer);
         coolDownTimer.pause();
     }
+
+
 
     enum Side {
         LEFT,
@@ -62,6 +66,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         this.toughness = toughness;
         this.baseToughness = toughness;
         this.speed = speed;
+        enemiesSlain = 0;
         roomNR++;
     }
 
@@ -212,6 +217,14 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
             this.remove();
             depthsDescending.setActiveScene(11);
         }
+    }
+
+    public void setEnemiesSlain() {
+        enemiesSlain++;
+    }
+
+    public int getEnemiesSlain(){
+        return enemiesSlain;
     }
 
     public void setAttack(int newAttack){

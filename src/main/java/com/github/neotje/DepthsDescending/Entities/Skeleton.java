@@ -34,6 +34,7 @@ public class Skeleton extends Enemy{
             if(depthsDescending.keyShards == 2){
                 System.out.println("You made a key!");
             }
+            depthsDescending.player1.setEnemiesSlain();
             depthsDescending.player1.setAttack(2);
             depthsDescending.player1.setBaseToughness(2);
             depthsDescending.player1.doeDamage(this.attack/2);
