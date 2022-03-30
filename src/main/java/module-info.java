@@ -8,4 +8,5 @@ module OOPD.beroepsproduct {
     opens fonts;
     opens textures;
     opens textures.dragon;
+    opens sound;
 }

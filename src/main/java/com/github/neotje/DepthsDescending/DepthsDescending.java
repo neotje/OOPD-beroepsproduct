@@ -57,6 +57,7 @@ public class DepthsDescending extends YaegerGame {
     public void setupGame() {
         setGameTitle("Descending Depths");
         setSize(new Size(690, 517));
+        setBackgroundAudio("sound/background.mp3");
     }
 
     @Override
