@@ -10,5 +10,6 @@ public class OnGameStart implements OnButtonPressedEvent {
     @Override
     public void onClicked(Button button, MouseButton mouseButton, Coordinate2D mouseCoordinate, DepthsDescending depthsDescending) {
         depthsDescending.setStartTime();
+        depthsDescending.setMusic("sound/game_screen.mp3");
     }
 }
