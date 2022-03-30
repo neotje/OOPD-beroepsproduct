@@ -16,17 +16,20 @@ import javafx.scene.text.FontWeight;
 public class Button extends TextEntity implements MouseButtonPressedListener, MouseExitListener, MouseEnterListener {
     public DepthsDescending depthsDescending;
     private int changeToScene;
+    private OnButtonPressedEvent eventListener;
 
-    public Button(Coordinate2D initialLocation, DepthsDescending depthsDescending, int changeToScene, String buttontext){
+    public Button(Coordinate2D initialLocation, DepthsDescending depthsDescending, int changeToScene, String buttontext, OnButtonPressedEvent eventListener){
         super(initialLocation, buttontext);
         this.changeToScene = changeToScene;
         this.depthsDescending = depthsDescending;
         setFill(Color.SADDLEBROWN);
         setFont(Font.font("Roboto", FontWeight.BOLD, 30));
+        this.eventListener = eventListener;
     }
 
     @Override
     public void onMouseButtonPressed(MouseButton button, Coordinate2D coordinate2D) {
+        if(eventListener != null) eventListener.onClicked(this, button, coordinate2D, depthsDescending);
         depthsDescending.setActiveScene(changeToScene);
     }
 

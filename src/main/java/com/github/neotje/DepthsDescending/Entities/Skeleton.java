@@ -36,6 +36,7 @@ public class Skeleton extends Enemy{
             }
             depthsDescending.player1.setAttack(2);
             depthsDescending.player1.setBaseToughness(2);
+            depthsDescending.player1.doeDamage(this.attack/2);
             this.remove();
         }
     }

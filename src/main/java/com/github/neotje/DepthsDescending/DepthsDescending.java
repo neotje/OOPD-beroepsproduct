@@ -9,6 +9,10 @@ import com.github.neotje.DepthsDescending.Scenes.RoomScene;
 import com.github.neotje.DepthsDescending.Scenes.TitleScene;
 import com.github.neotje.DepthsDescending.Entities.Player;
 
+import java.security.Timestamp;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
 public class DepthsDescending extends YaegerGame {
     public Player player1 = new Player(2,10, 5, new Coordinate2D(316, 349), this);
     public CustomFont ringbearerTitle = new CustomFont("fonts/FONT.TTF", 60);
@@ -16,8 +20,32 @@ public class DepthsDescending extends YaegerGame {
     public CustomFont ringbearerStats = new CustomFont("fonts/FONT.TTF", 15);
     public int keyShards = 0;
 
+    private long startTime;
+    private long endTime;
+
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public void setStartTime() {
+        this.startTime = System.currentTimeMillis();
+        System.out.println(startTime);
+    }
+
+    public void setEndTime() {
+        this.endTime = System.currentTimeMillis();
+        System.out.println(endTime);
+    }
+
+    public long getTimePlayed() {
+        return endTime - startTime;
+    }
+
+    public String getTimePlayedFormatted() {
+        long seconds = TimeUnit.MILLISECONDS.toSeconds(getTimePlayed());
+        long minutes = TimeUnit.MILLISECONDS.toMinutes(getTimePlayed());
+
+        return minutes + ":" + seconds;
     }
 
     @Override

@@ -20,13 +20,14 @@ public class EndScene extends StaticScene {
     @Override
     public void setupScene() {
         setBackgroundImage("background/endScene.png");
+        depthsDescending.setEndTime();
         enemies = 40;
     }
 
     @Override
     public void setupEntities() {
         // puts out the final time on
-        var timeText = new TextEntity(new Coordinate2D(getWidth()/2, getHeight()/2), "/*getTime()*/");
+        var timeText = new TextEntity(new Coordinate2D(getWidth()/2, getHeight()/2), "Time played: " + depthsDescending.getTimePlayedFormatted());
         timeText.setAnchorPoint(AnchorPoint.CENTER_CENTER);
         timeText.setFont(Font.font("fonts/RINGM___.tiff", FontWeight.SEMI_BOLD, 40));
         addEntity(timeText);
@@ -59,7 +60,7 @@ public class EndScene extends StaticScene {
         addEntity(totalStrength);
 
         // button to get to start screen
-        Button endButton = new Button(new Coordinate2D(getWidth()/2, getHeight()/2 + 210), depthsDescending, 0, "Return to home");
+        Button endButton = new Button(new Coordinate2D(getWidth()/2, getHeight()/2 + 210), depthsDescending, 0, "Return to home", null);
         endButton.setAnchorPoint(AnchorPoint.CENTER_CENTER);
         addEntity(endButton);
     }
