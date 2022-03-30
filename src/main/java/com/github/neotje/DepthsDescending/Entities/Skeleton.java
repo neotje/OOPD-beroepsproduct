@@ -7,6 +7,8 @@ import com.github.neotje.DepthsDescending.DepthsDescending;
 import com.github.neotje.DepthsDescending.Sprites.SkeletonSprite;
 
 public class Skeleton extends Enemy{
+    private HealthBar healthBar;
+
     public Skeleton(Coordinate2D location, int Attack, int Toughness, DepthsDescending depthsDescending) {
         super(location, Attack, Toughness, 1000, depthsDescending);
     }
@@ -21,12 +23,17 @@ public class Skeleton extends Enemy{
         SkeletonSprite skeleton = new SkeletonSprite(new Coordinate2D(0, 0), "textures/skeleton.png");
         skeleton.setAnchorPoint(AnchorPoint.CENTER_CENTER);
 
+        healthBar = new HealthBar(new Coordinate2D(0,-35), this.toughness, this.attack, depthsDescending);
+        addEntity(healthBar);
+
         addEntity(skeleton);
     }
 
     @Override
     public void doeDamage(int attackStrength) {
         this.toughness -= attackStrength;
+
+        healthBar.updateStats(this.toughness, this.attack);
 
         if (this.toughness <= 0) {
             depthsDescending.keyShards++;
