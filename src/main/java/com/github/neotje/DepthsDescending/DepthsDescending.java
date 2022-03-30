@@ -50,6 +50,7 @@ public class DepthsDescending extends YaegerGame {
 
     public void gameReset() {
         player1 = new Player(2,10, 5, new Coordinate2D(316, 349), this);
+        keyShards = 0;
     }
 
     @Override
