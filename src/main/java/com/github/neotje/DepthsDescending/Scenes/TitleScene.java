@@ -20,7 +20,7 @@ public class TitleScene extends StaticScene {
     }
     @Override
     public void setupScene() {
-        setBackgroundImage("background/titleScene.png");
+        setBackgroundImage("background/Startscene.png");
         depthsDescending.setMusic("sound/start_screen.mp3");
     }
 

@@ -4,6 +4,7 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.YaegerGame;
 import com.github.hanyaeger.api.entities.impl.CustomFont;
+import com.github.neotje.DepthsDescending.Scenes.DeathScene;
 import com.github.neotje.DepthsDescending.Scenes.EndScene;
 import com.github.neotje.DepthsDescending.Scenes.RoomScene;
 import com.github.neotje.DepthsDescending.Scenes.TitleScene;
@@ -45,7 +46,7 @@ public class DepthsDescending extends YaegerGame {
         long seconds = TimeUnit.MILLISECONDS.toSeconds(getTimePlayed());
         long minutes = TimeUnit.MILLISECONDS.toMinutes(getTimePlayed());
 
-        return minutes + ":" + seconds;
+        return minutes + " " + seconds;
     }
 
     public void gameReset() {
@@ -77,5 +78,6 @@ public class DepthsDescending extends YaegerGame {
         addScene(9, new RoomScene("background/room9.png", this, 8));
         addScene(10, new RoomScene("background/room10.png", this, 9));
         addScene(11, new EndScene(this));
+        addScene(12, new DeathScene(this));
     }
 }

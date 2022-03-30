@@ -215,7 +215,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         }
         if(this.toughness <= 0){
             this.remove();
-            depthsDescending.setActiveScene(11);
+            depthsDescending.setActiveScene(12);
         }
     }
 
@@ -239,5 +239,9 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
 
     public int getToughness(){
         return toughness;
+    }
+
+    public int getBaseToughness(){
+        return baseToughness;
     }
 }
