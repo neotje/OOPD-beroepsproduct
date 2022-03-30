@@ -5,6 +5,7 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.impl.TextEntity;
 import com.github.hanyaeger.api.scenes.StaticScene;
 import com.github.neotje.DepthsDescending.DepthsDescending;
+import com.github.neotje.DepthsDescending.GamePlay.OnEndButton;
 import com.github.neotje.DepthsDescending.Sprites.Buttons.Button;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -66,7 +67,7 @@ public class EndScene extends StaticScene {
         addEntity(totalStrength);
 
         // button to get to start screen
-        Button endButton = new Button(new Coordinate2D(getWidth()/2, getHeight()/2 + 210), depthsDescending, 0, "Return to home", null);
+        Button endButton = new Button(new Coordinate2D(getWidth()/2, getHeight()/2 + 210), depthsDescending, 0, "Return to home", new OnEndButton());
         endButton.setAnchorPoint(AnchorPoint.CENTER_CENTER);
         addEntity(endButton);
     }

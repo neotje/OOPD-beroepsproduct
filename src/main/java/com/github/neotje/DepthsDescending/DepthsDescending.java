@@ -48,6 +48,10 @@ public class DepthsDescending extends YaegerGame {
         return minutes + ":" + seconds;
     }
 
+    public void gameReset() {
+        player1 = new Player(2,10, 5, new Coordinate2D(316, 349), this);
+    }
+
     @Override
     public void setupGame() {
         setGameTitle("Descending Depths");
