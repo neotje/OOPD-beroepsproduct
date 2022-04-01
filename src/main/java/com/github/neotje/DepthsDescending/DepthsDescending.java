@@ -17,6 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class DepthsDescending extends YaegerGame {
     public Player player1 = new Player(2,10, 5, new Coordinate2D(316, 349), this);
     public CustomFont ringbearerTitle = new CustomFont("fonts/FONT.TTF", 60);
+    public CustomFont ringbearerHeader = new CustomFont("fonts/FONT.TTF",40);
     public CustomFont ringbearerParagraph = new CustomFont("fonts/FONT.TTF", 20);
     public CustomFont ringbearerStats = new CustomFont("fonts/FONT.TTF", 15);
     public int keyShards = 0;
@@ -46,7 +47,7 @@ public class DepthsDescending extends YaegerGame {
         long seconds = TimeUnit.MILLISECONDS.toSeconds(getTimePlayed());
         long minutes = TimeUnit.MILLISECONDS.toMinutes(getTimePlayed());
 
-        return minutes + " " + seconds;
+        return minutes + ":" + seconds;
     }
 
     public void gameReset() {

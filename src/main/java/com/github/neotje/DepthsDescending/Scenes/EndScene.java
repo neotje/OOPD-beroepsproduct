@@ -34,10 +34,16 @@ public class EndScene extends StaticScene {
         titleText.setFont(depthsDescending.ringbearerTitle);
         addEntity(titleText);
         // puts out the final time on
-        var timeText = new TextEntity(new Coordinate2D(getWidth()/2, getHeight()/2), "Time played " + depthsDescending.getTimePlayedFormatted());
+        var timeText = new TextEntity(new Coordinate2D(130, 150), "Time played ");
         timeText.setFill(Color.WHITE);
         timeText.setAnchorPoint(AnchorPoint.CENTER_CENTER);
-        timeText.setFont(depthsDescending.ringbearerStats);
+        timeText.setFont(depthsDescending.ringbearerHeader);
+
+        var timeTimeText = new TextEntity(new Coordinate2D(280, 147), depthsDescending.getTimePlayedFormatted());
+        timeTimeText.setFill(Color.WHITE);
+        timeTimeText.setAnchorPoint(AnchorPoint.CENTER_CENTER);
+        timeTimeText.setFont(Font.font("Roboto", FontWeight.SEMI_BOLD, 35));
+        addEntity(timeTimeText);
         addEntity(timeText);
 
         // Items collected
@@ -50,26 +56,47 @@ public class EndScene extends StaticScene {
         */
 
         // Enemies slain
-        var enemiesSlain = new TextEntity(new Coordinate2D(getWidth()/2, getHeight()/2 + 40),  "Enemies Slain " + depthsDescending.player1.getEnemiesSlain());
+        var enemiesSlain = new TextEntity(new Coordinate2D(120, 210),  "Enemies Slain");
         enemiesSlain.setAnchorPoint(AnchorPoint.CENTER_CENTER);
         enemiesSlain.setFill(Color.WHITE);
         enemiesSlain.setFont(depthsDescending.ringbearerStats);
+
+        var enemiesSlainText = new TextEntity(new Coordinate2D(115, 235),  "" + depthsDescending.player1.getEnemiesSlain());
+        enemiesSlainText.setAnchorPoint(AnchorPoint.CENTER_CENTER);
+        enemiesSlainText.setFill(Color.WHITE);
+        enemiesSlainText.setFont(Font.font("Roboto", FontWeight.SEMI_BOLD, 15));
+
+        addEntity(enemiesSlainText);
         addEntity(enemiesSlain);
 
         // Total end HP
 
-        var totalToughness = new TextEntity(new Coordinate2D(getWidth()/2, getHeight()/2 + 80),  "Total Toughness " + depthsDescending.player1.getBaseToughness());
+        var totalToughness = new TextEntity(new Coordinate2D(115, 340),  "Total Toughness ");
         totalToughness.setAnchorPoint(AnchorPoint.CENTER_CENTER);
         totalToughness.setFill(Color.WHITE);
         totalToughness.setFont(depthsDescending.ringbearerStats);
+
+        var totalToughnessText = new TextEntity(new Coordinate2D(115, 360),  "" + depthsDescending.player1.getBaseToughness());
+        totalToughnessText.setAnchorPoint(AnchorPoint.CENTER_CENTER);
+        totalToughnessText.setFill(Color.WHITE);
+        enemiesSlainText.setFont(Font.font("Roboto", FontWeight.SEMI_BOLD, 15));
+
+        addEntity(totalToughnessText);
         addEntity(totalToughness);
 
         // Total Strength
 
-        var totalStrength = new TextEntity(new Coordinate2D(getWidth()/2, getHeight()/2 + 120),  "Total Attack " + depthsDescending.player1.getAttack());
+        var totalStrength = new TextEntity(new Coordinate2D(280, 265),  "Total Attack");
         totalStrength.setAnchorPoint(AnchorPoint.CENTER_CENTER);
         totalStrength.setFill(Color.WHITE);
         totalStrength.setFont(depthsDescending.ringbearerStats);
+
+        var totalStrengthText = new TextEntity(new Coordinate2D(280, 295),  "" + depthsDescending.player1.getAttack());
+        totalStrengthText.setAnchorPoint(AnchorPoint.CENTER_CENTER);
+        totalStrengthText.setFill(Color.WHITE);
+        totalStrengthText.setFont(Font.font("Roboto", FontWeight.SEMI_BOLD, 15));
+
+        addEntity(totalStrengthText);
         addEntity(totalStrength);
 
         // button to get to start screen

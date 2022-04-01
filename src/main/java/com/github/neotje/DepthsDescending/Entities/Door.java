@@ -25,7 +25,7 @@ public class Door extends RectangleEntity implements Collider, Collided{
         super(location);
         setHeight(height);
         setWidth(width);
-        setFill(Color.RED);
+        //setFill(Color.RED);
         setAnchorPoint(AnchorPoint.CENTER_CENTER);
         whichDoor = choice;
         this.depthsDescending = depthsDescending;
