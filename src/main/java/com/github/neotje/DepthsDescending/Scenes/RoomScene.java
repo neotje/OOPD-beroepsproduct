@@ -36,7 +36,6 @@ public class RoomScene extends DynamicScene {
     @Override
     public void setupScene() {
         setBackgroundImage(background);
-
     }
 
     @Override

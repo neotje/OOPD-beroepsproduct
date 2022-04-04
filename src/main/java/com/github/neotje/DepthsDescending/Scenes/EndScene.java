@@ -21,6 +21,7 @@ public class EndScene extends StaticScene {
     @Override
     public void setupScene() {
         setBackgroundImage("background/endScene.png");
+        depthsDescending.setMusic("sound/win_screen.mp3");
         depthsDescending.setEndTime();
     }
 
