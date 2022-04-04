@@ -13,6 +13,7 @@ public abstract class Enemy extends DynamicCompositeEntity implements Combat, Co
     protected int attack;
     protected int toughness;
     protected DepthsDescending depthsDescending;
+    protected HealthBar healthBar;
 
     private CoolDownTimer coolDownTimer;
     private int attackCoolDown;
@@ -27,7 +28,8 @@ public abstract class Enemy extends DynamicCompositeEntity implements Combat, Co
         isCoolingDown = false;
     }
 
-        public int getAttackCoolDown() {
+    @Override
+    public int getAttackCoolDown() {
         return attackCoolDown;
     }
 

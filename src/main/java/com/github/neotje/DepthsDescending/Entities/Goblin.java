@@ -11,7 +11,6 @@ import com.github.neotje.DepthsDescending.Sprites.Icons.Icons;
 import javafx.scene.paint.Color;
 
 public class Goblin extends Enemy{
-    private HealthBar healthBar;
 
     public Goblin(Coordinate2D location, int Attack, int Toughness, DepthsDescending depthsDescending) {
         super(location, Attack, Toughness, 500, depthsDescending);

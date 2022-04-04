@@ -7,7 +7,6 @@ import com.github.neotje.DepthsDescending.DepthsDescending;
 import com.github.neotje.DepthsDescending.Sprites.SkeletonSprite;
 
 public class Skeleton extends Enemy{
-    private HealthBar healthBar;
 
     public Skeleton(Coordinate2D location, int Attack, int Toughness, DepthsDescending depthsDescending) {
         super(location, Attack, Toughness, 1000, depthsDescending);

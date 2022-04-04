@@ -14,7 +14,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class Button extends TextEntity implements MouseButtonPressedListener, MouseExitListener, MouseEnterListener {
-    public DepthsDescending depthsDescending;
+    private DepthsDescending depthsDescending;
     private int changeToScene;
     private OnButtonPressedEvent eventListener;
 
@@ -22,7 +22,7 @@ public class Button extends TextEntity implements MouseButtonPressedListener, Mo
         super(initialLocation, buttontext);
         this.changeToScene = changeToScene;
         this.depthsDescending = depthsDescending;
-        setFill(Color.SADDLEBROWN);
+        setFill(Color.BLACK);
         setFont(Font.font("Roboto", FontWeight.BOLD, 30));
         this.eventListener = eventListener;
     }
@@ -41,7 +41,7 @@ public class Button extends TextEntity implements MouseButtonPressedListener, Mo
 
     @Override
     public void onMouseExited() {
-        setFill(Color.BROWN);
+        setFill(Color.BLACK);
         setCursor(Cursor.DEFAULT);
 
     }
