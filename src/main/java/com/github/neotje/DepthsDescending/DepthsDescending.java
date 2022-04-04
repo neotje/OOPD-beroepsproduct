@@ -46,6 +46,7 @@ public class DepthsDescending extends YaegerGame {
     public String getTimePlayedFormatted() {
         long seconds = TimeUnit.MILLISECONDS.toSeconds(getTimePlayed());
         long minutes = TimeUnit.MILLISECONDS.toMinutes(getTimePlayed());
+        seconds = seconds - (minutes * 60);
 
         return minutes + ":" + seconds;
     }
