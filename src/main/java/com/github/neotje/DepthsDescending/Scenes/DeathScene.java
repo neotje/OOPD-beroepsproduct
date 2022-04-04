@@ -18,8 +18,8 @@ public class DeathScene extends StaticScene {
     }
     @Override
     public void setupScene() {
-        depthsDescending.setMusic("sound/death_screen.mp3");
         setBackgroundImage("background/deathScene.png");
+        depthsDescending.setMusic("sound/death_screen.mp3");
     }
 
     @Override
