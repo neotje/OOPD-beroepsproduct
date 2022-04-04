@@ -2,12 +2,12 @@ package com.github.neotje.DepthsDescending.Entities;
 
 import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
-import com.github.hanyaeger.api.entities.Collider;
 import com.github.neotje.DepthsDescending.DepthsDescending;
+import com.github.neotje.DepthsDescending.Sprites.DragonClawSprite;
 
 public class DragonClaw extends Enemy{
     private String resource;
-    Dragon dragon;
+    private Dragon dragon;
 
     public DragonClaw(Coordinate2D location, int attack, int toughness, String resource, DepthsDescending depthsDescending, Dragon dragon){
         super(location, attack, toughness, 2000, depthsDescending);
@@ -17,7 +17,7 @@ public class DragonClaw extends Enemy{
 
     @Override
     protected void setupEntities() {
-        var dragonClaw = new com.github.neotje.DepthsDescending.Sprites.DragonClaw(new Coordinate2D(0, 0) , resource);
+        var dragonClaw = new DragonClawSprite(new Coordinate2D(0, 0) , resource);
         dragonClaw.setAnchorPoint(AnchorPoint.CENTER_CENTER);
         addEntity(dragonClaw);
     }

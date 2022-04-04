@@ -16,7 +16,7 @@ public abstract class Enemy extends DynamicCompositeEntity implements Combat, Co
 
     private CoolDownTimer coolDownTimer;
     private int attackCoolDown;
-    private boolean isCoolingDown = false;
+    private boolean isCoolingDown;
 
     public Enemy(Coordinate2D location, int attack, int toughness, int attackCoolDown, DepthsDescending depthsDescending){
         super(location);
@@ -24,9 +24,10 @@ public abstract class Enemy extends DynamicCompositeEntity implements Combat, Co
         this.toughness = toughness;
         this.attackCoolDown = attackCoolDown;
         this.depthsDescending = depthsDescending;
+        isCoolingDown = false;
     }
 
-    public int getAttackCoolDown() {
+        public int getAttackCoolDown() {
         return attackCoolDown;
     }
 
@@ -46,11 +47,9 @@ public abstract class Enemy extends DynamicCompositeEntity implements Combat, Co
 
     @Override
     public void onCollision(Collider collidingObject) {
-        //((Combat) collidingObject).doeDamage(this.attack);
-
         if(collidingObject instanceof Player && !isCoolingDown) {
             onAttack((Player) collidingObject);
-            System.out.println("Enemy has attacked!");
+            //System.out.println("Enemy has attacked!");
             coolDownTimer.resume();
             setCoolingDown(true);
         }

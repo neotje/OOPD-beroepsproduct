@@ -10,7 +10,7 @@ import com.github.neotje.DepthsDescending.Sprites.GoblinSprite;
 import com.github.neotje.DepthsDescending.Sprites.Icons.Icons;
 import javafx.scene.paint.Color;
 
-public class Goblin extends Enemy implements Combat {
+public class Goblin extends Enemy{
     private HealthBar healthBar;
 
     public Goblin(Coordinate2D location, int Attack, int Toughness, DepthsDescending depthsDescending) {
@@ -29,7 +29,6 @@ public class Goblin extends Enemy implements Combat {
 
         var toughnessIcon = new Icons("textures/shield.png", new Coordinate2D(0, -40));
         toughnessIcon.setAnchorPoint(AnchorPoint.TOP_RIGHT);
-        //addEntity(toughnessIcon);
 
         healthBar = new HealthBar(new Coordinate2D(0,-20), this.toughness, this.attack, depthsDescending);
         addEntity(healthBar);

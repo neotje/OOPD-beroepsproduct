@@ -11,17 +11,17 @@ import com.github.hanyaeger.api.UpdateExposer;
 
 public class Dragon extends Enemy implements UpdateExposer{
 
-    DragonHead dragonHead;
-    DragonNeck dragonNeck1;
-    DragonNeck dragonNeck2;
-    DragonNeck dragonNeck3;
-    DragonNeck dragonNeck4;
-    boolean[] headDirection = {false, false};
-    double[] headPosition = {0, -60};
-    double[] neckPosition1 = {0, -160};
-    double[] neckPosition2 = {0, -140};
-    double[] neckPosition3 = {0, -120};
-    double[] neckPosition4 = {0, -100};
+    private DragonHead dragonHead;
+    private DragonNeck dragonNeck1;
+    private DragonNeck dragonNeck2;
+    private DragonNeck dragonNeck3;
+    private DragonNeck dragonNeck4;
+    private boolean[] headDirection = {false, false};
+    private double[] headPosition = {0, -60};
+    private double[] neckPosition1 = {0, -160};
+    private double[] neckPosition2 = {0, -140};
+    private double[] neckPosition3 = {0, -120};
+    private double[] neckPosition4 = {0, -100};
 
     public Dragon(Coordinate2D location, int attack, int toughness, DepthsDescending depthsDescending) {
         super(location, attack, toughness, 3000, depthsDescending);

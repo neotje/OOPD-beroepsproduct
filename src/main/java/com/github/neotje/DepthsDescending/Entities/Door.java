@@ -9,14 +9,14 @@ import com.github.neotje.DepthsDescending.DepthsDescending;
 import javafx.scene.paint.Color;
 
 public class Door extends RectangleEntity implements Collider, Collided{
-    int whichDoor;
-    DepthsDescending depthsDescending;
+    private int upgradeDoor;
+    private DepthsDescending depthsDescending;
 
     public Door(Coordinate2D location, int height, int width, DepthsDescending depthsDescending){
         super(location);
         setHeight(height);
         setWidth(width);
-        setFill(Color.RED);
+        setFill(new Color(0,0,0,0));
         setAnchorPoint(AnchorPoint.CENTER_CENTER);
         this.depthsDescending = depthsDescending;
     }
@@ -25,9 +25,9 @@ public class Door extends RectangleEntity implements Collider, Collided{
         super(location);
         setHeight(height);
         setWidth(width);
-        //setFill(Color.RED);
+        setFill(new Color(0,0,0,0));
         setAnchorPoint(AnchorPoint.CENTER_CENTER);
-        whichDoor = choice;
+        upgradeDoor = choice;
         this.depthsDescending = depthsDescending;
     }
 
@@ -38,11 +38,11 @@ public class Door extends RectangleEntity implements Collider, Collided{
     }
 
     public void upgradeStat(){
-        if(whichDoor == 1){
-            System.out.println(whichDoor);
+        if(upgradeDoor == 1){
+            System.out.println(upgradeDoor);
             depthsDescending.player1.setAttack(2);
-        } else if(whichDoor == 2){
-            System.out.println(whichDoor);
+        } else if(upgradeDoor == 2){
+            System.out.println(upgradeDoor);
             depthsDescending.player1.setBaseToughness(2);
         }
     }

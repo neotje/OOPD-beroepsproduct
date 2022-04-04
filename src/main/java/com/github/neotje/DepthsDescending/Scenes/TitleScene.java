@@ -12,7 +12,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class TitleScene extends StaticScene {
-    public DepthsDescending depthsDescending;
+    private DepthsDescending depthsDescending;
 
     public TitleScene(DepthsDescending depthsDescending){
         this.depthsDescending = depthsDescending;

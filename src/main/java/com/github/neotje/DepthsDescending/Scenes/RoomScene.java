@@ -15,8 +15,8 @@ import javafx.scene.paint.Color;
 import java.util.Random;
 
 public class RoomScene extends DynamicScene {
-    protected String background;
-    protected DepthsDescending depthsDescending;
+    private String background;
+    private DepthsDescending depthsDescending;
     private int roomNr;
 
     private TextEntity attackText;

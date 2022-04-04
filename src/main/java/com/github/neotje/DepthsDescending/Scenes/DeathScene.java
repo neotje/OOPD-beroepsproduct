@@ -11,7 +11,7 @@ import javafx.scene.paint.Color;
 
 public class DeathScene extends StaticScene {
 
-    public DepthsDescending depthsDescending;
+    private DepthsDescending depthsDescending;
 
     public DeathScene(DepthsDescending depthsDescending){
         this.depthsDescending = depthsDescending;
