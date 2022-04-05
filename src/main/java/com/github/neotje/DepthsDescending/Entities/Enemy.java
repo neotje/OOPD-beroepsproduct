@@ -19,6 +19,14 @@ public abstract class Enemy extends DynamicCompositeEntity implements Combat, Co
     private int attackCoolDown;
     private boolean isCoolingDown;
 
+    /**
+     * @author Brian Vriezen
+     * @param location begin locatie
+     * @param attack aanval sterkte
+     * @param toughness aantal levens
+     * @param attackCoolDown tijd tussen aanvallen
+     * @param depthsDescending game object
+     */
     public Enemy(Coordinate2D location, int attack, int toughness, int attackCoolDown, DepthsDescending depthsDescending){
         super(location);
         this.attack = attack;

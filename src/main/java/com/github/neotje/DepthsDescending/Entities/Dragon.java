@@ -23,6 +23,13 @@ public class Dragon extends Enemy implements UpdateExposer{
     private double[] neckPosition3 = {0, -120};
     private double[] neckPosition4 = {0, -100};
 
+    /**
+     * @author Brian Vriezen
+     * @param location begin locatie
+     * @param attack aanval sterkte
+     * @param toughness aantal levens
+     * @param depthsDescending game object
+     */
     public Dragon(Coordinate2D location, int attack, int toughness, DepthsDescending depthsDescending) {
         super(location, attack, toughness, 3000, depthsDescending);
     }
@@ -77,6 +84,10 @@ public class Dragon extends Enemy implements UpdateExposer{
         neckMovement(-32, 32, -100,-92, neckPosition4, dragonNeck4, 0.8);
     }
 
+    /**
+     * Deze methode beweegt het hoofd van de draak.
+     * @author Brian Vriezen
+     */
     void headMovement(){
         if(headPosition[0] >= -40 && !headDirection[0]){
             headPosition[0]--;
@@ -107,6 +118,17 @@ public class Dragon extends Enemy implements UpdateExposer{
         dragonHead.setAnchorLocationY(headPosition[1]);
     }
 
+    /**
+     * Deze methode beweegt de nek van de draak.
+     * @author Brian Vriezen
+     * @param minX minimale X coördinaten
+     * @param maxX maximale X coördinaten
+     * @param minY minimale Y coördinaten
+     * @param maxY maximale Y coördinaten
+     * @param position momentel positie
+     * @param neck  neck object
+     * @param speed snelheid van de bewegingen
+     */
     void neckMovement(double minX, double maxX, double minY, double maxY, double[] position, DragonNeck neck, double speed){
         if(position[0] >= minX && !headDirection[0]){
             position[0] -= speed;

@@ -60,7 +60,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     };
 
     /**
-     * @author Neo Hop, Jesse Veldmaat
+     * @author Neo Hop, Jesse Veldmaat , Brian Vriezen
      * @param attack aanval sterkte
      * @param toughness aantal levens
      * @param speed loop snelheid

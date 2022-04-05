@@ -11,7 +11,13 @@ import com.github.neotje.DepthsDescending.Sprites.Icons.Icons;
 import javafx.scene.paint.Color;
 
 public class Goblin extends Enemy{
-
+    /**
+     * @author Brian Vriezen
+     * @param location begin locatie
+     * @param Attack aanval sterkte
+     * @param Toughness aantal levens
+     * @param depthsDescending game object
+     */
     public Goblin(Coordinate2D location, int Attack, int Toughness, DepthsDescending depthsDescending) {
         super(location, Attack, Toughness, 500, depthsDescending);
     }

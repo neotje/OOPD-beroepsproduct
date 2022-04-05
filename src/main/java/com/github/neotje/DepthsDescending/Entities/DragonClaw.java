@@ -9,6 +9,15 @@ public class DragonClaw extends Enemy{
     private String resource;
     private Dragon dragon;
 
+    /**
+     * @author Brian Vriezen
+     * @param location begin locatie
+     * @param attack aanval sterkte
+     * @param toughness aantal levens
+     * @param resource locatie van het plaatje
+     * @param depthsDescending game object
+     * @param dragon dragon object
+     */
     public DragonClaw(Coordinate2D location, int attack, int toughness, String resource, DepthsDescending depthsDescending, Dragon dragon){
         super(location, attack, toughness, 2000, depthsDescending);
         this.resource = resource;

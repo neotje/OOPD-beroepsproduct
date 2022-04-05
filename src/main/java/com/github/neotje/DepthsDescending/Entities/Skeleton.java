@@ -7,7 +7,13 @@ import com.github.neotje.DepthsDescending.DepthsDescending;
 import com.github.neotje.DepthsDescending.Sprites.SkeletonSprite;
 
 public class Skeleton extends Enemy{
-
+    /**
+     * @author Brian Vriezen
+     * @param location begin locatie
+     * @param Attack aanval sterkte
+     * @param Toughness aantal levens
+     * @param depthsDescending game object
+     */
     public Skeleton(Coordinate2D location, int Attack, int Toughness, DepthsDescending depthsDescending) {
         super(location, Attack, Toughness, 1000, depthsDescending);
     }

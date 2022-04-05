@@ -12,6 +12,13 @@ public class Door extends RectangleEntity implements Collider, Collided{
     private int upgradeDoor;
     private DepthsDescending depthsDescending;
 
+    /**
+     * @author Brian Vriezen
+     * @param location locaties van de deur
+     * @param height deur hoogte
+     * @param width deur breedte
+     * @param depthsDescending game object
+     */
     public Door(Coordinate2D location, int height, int width, DepthsDescending depthsDescending){
         super(location);
         setHeight(height);
@@ -21,6 +28,14 @@ public class Door extends RectangleEntity implements Collider, Collided{
         this.depthsDescending = depthsDescending;
     }
 
+    /**
+     * @author Brian Vriezen
+     * @param location locaties van de deur
+     * @param height deur hoogte
+     * @param width deur breedte
+     * @param depthsDescending game object
+     * @param choice keuze van de deur of de attack of toughness omhoog gaat
+     */
     public Door(Coordinate2D location, int height, int width, DepthsDescending depthsDescending, int choice){
         super(location);
         setHeight(height);
@@ -31,6 +46,10 @@ public class Door extends RectangleEntity implements Collider, Collided{
         this.depthsDescending = depthsDescending;
     }
 
+    /**
+     * @author
+     * @param collider
+     */
     @Override
     public void onCollision(Collider collider) {
         System.out.println("Door");
