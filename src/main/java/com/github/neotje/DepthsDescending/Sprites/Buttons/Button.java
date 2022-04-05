@@ -22,7 +22,7 @@ public class Button extends TextEntity implements MouseButtonPressedListener, Mo
         super(initialLocation, buttontext);
         this.changeToScene = changeToScene;
         this.depthsDescending = depthsDescending;
-        setFill(Color.BLACK);
+        setFill(Color.WHITE);
         setFont(Font.font("Roboto", FontWeight.BOLD, 30));
         this.eventListener = eventListener;
     }
@@ -35,13 +35,13 @@ public class Button extends TextEntity implements MouseButtonPressedListener, Mo
 
     @Override
     public void onMouseEntered() {
-        setFill(Color.BLACK);
+        setFill(Color.WHITE);
         setCursor(Cursor.HAND);
     }
 
     @Override
     public void onMouseExited() {
-        setFill(Color.BLACK);
+        setFill(Color.WHITE);
         setCursor(Cursor.DEFAULT);
 
     }
