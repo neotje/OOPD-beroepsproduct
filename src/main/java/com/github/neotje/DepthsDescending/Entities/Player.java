@@ -59,6 +59,14 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
             329 // bottom
     };
 
+    /**
+     * @author Neo Hop, Jesse Veldmaat
+     * @param attack aanval sterkte
+     * @param toughness aantal levens
+     * @param speed loop snelheid
+     * @param initialLocation start positie
+     * @param depthsDescending game object
+     */
     public Player(int attack, int toughness, double speed, Coordinate2D initialLocation, DepthsDescending depthsDescending) {
         super("textures/player.png", initialLocation, new Size(30, 60), 1, 2);
         this.depthsDescending = depthsDescending;
@@ -74,6 +82,11 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         this.currentRoom = currentRoom;
     }
 
+    /**
+     * Speler movement afhandelen
+     * @author Neo Hop
+     * @param pressedKeys
+     */
     public void Movement(Set<KeyCode> pressedKeys) {
         Set<Side> touchingSide = isTouchingBoundary();
 
@@ -104,6 +117,9 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         }
     }
 
+    /**
+     * Player binnen een bepaalde boundary houden.
+     */
     public void mapBoundary(){
         Set<Side> touchingSide = isTouchingBoundary();
 
@@ -121,6 +137,11 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         }
     }
 
+    /**
+     * Geeft retur welke kant van de boundary aangeraakt wordt.
+     * @author Neo Hop
+     * @return een set aan Side
+     */
     private Set<Side> isTouchingBoundary() {
         Set<Side> sides = new HashSet<Side>();
 
@@ -150,6 +171,7 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         mapBoundary();
     }
 
+    // TODO: is deze functie wel nodig?
     @Override
     public void notifyBoundaryTouching(SceneBorder border) {
         setSpeed(0);

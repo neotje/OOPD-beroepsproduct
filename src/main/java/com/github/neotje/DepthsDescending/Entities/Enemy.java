@@ -33,6 +33,11 @@ public abstract class Enemy extends DynamicCompositeEntity implements Combat, Co
         return attackCoolDown;
     }
 
+    /**
+     * Via deze functie kan je een player aanvallen, nadat de cooldown voorbij is.
+     * @author Neo Hop
+     * @param player speler die aangevallen wordt.
+     */
     public abstract void onAttack(Player player);
 
     @Override

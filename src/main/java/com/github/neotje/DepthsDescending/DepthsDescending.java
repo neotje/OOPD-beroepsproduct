@@ -43,6 +43,11 @@ public class DepthsDescending extends YaegerGame {
         return endTime - startTime;
     }
 
+    /**
+     * Geeft de gespeelde tijd terug in het formaat: mm:ss
+     * @author Neo Hop
+     * @return mm:ss geformateerde String.
+     */
     public String getTimePlayedFormatted() {
         long seconds = TimeUnit.MILLISECONDS.toSeconds(getTimePlayed());
         long minutes = TimeUnit.MILLISECONDS.toMinutes(getTimePlayed());
@@ -51,11 +56,20 @@ public class DepthsDescending extends YaegerGame {
         return minutes + ":" + seconds;
     }
 
+    /**
+     * Reset de game toestanden.
+     * @author Neo Hop
+     */
     public void gameReset() {
         player1 = new Player(2,10, 5, new Coordinate2D(316, 349), this);
         keyShards = 0;
     }
 
+    /**
+     * Verander achtergrond muziek.
+     * @author Neo Hop
+     * @param url pad naar mp3 bestand.
+     */
     public void setMusic(String url) {
         setBackgroundAudio(url);
     }

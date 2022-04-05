@@ -6,6 +6,10 @@ import com.github.neotje.DepthsDescending.Entities.Enemy;
 public class CoolDownTimer extends Timer {
     private Combat entity;
 
+    /**
+     * @author Neo Hop
+     * @param entity Entity die cooldown heeft.
+     */
     public CoolDownTimer(Combat entity) {
         super(entity.getAttackCoolDown());
         this.entity = entity;

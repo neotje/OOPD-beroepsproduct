@@ -17,6 +17,13 @@ public class HealthBar extends DynamicCompositeEntity {
 
     private DepthsDescending depthsDescending;
 
+    /**
+     * @author Neo Hop
+     * @param initialLocation positie
+     * @param toughness levens
+     * @param attack aanvalssterkte.
+     * @param depthsDescending Game object.
+     */
     public HealthBar(Coordinate2D initialLocation, int toughness, int attack, DepthsDescending depthsDescending) {
         super(initialLocation);
 
@@ -48,6 +55,12 @@ public class HealthBar extends DynamicCompositeEntity {
         addEntity(attackText);
     }
 
+    /**
+     * update de stats teksten.
+     * @author Neo Hop
+     * @param toughness levens.
+     * @param attack aanvalssterkte.
+     */
     public void updateStats(int toughness, int attack) {
         this.toughness = toughness;
         this.attack = attack;
