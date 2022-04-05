@@ -37,6 +37,10 @@ public class Door extends RectangleEntity implements Collider, Collided{
 
     }
 
+    /**
+     * methode om de statistieken te upgraden van de speler
+     * @author Jesse Veldmaat
+     */
     public void upgradeStat(){
         if(upgradeDoor == 1){
             System.out.println(upgradeDoor);

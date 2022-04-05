@@ -28,7 +28,6 @@ public class DepthsDescending extends YaegerGame {
     public static void main(String[] args) {
         launch(args);
     }
-
     public void setStartTime() {
         this.startTime = System.currentTimeMillis();
         System.out.println(startTime);

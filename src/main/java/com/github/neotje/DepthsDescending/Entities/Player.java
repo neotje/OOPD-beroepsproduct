@@ -118,7 +118,8 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
     }
 
     /**
-     * Player binnen een bepaalde boundary houden.
+     * methode om de mapBoundary van de gamemap aan te wijzen
+     * @author Jesse Veldmaat & Neo Hop
      */
     public void mapBoundary(){
         Set<Side> touchingSide = isTouchingBoundary();
@@ -241,18 +242,37 @@ public class Player extends DynamicSpriteEntity implements KeyListener, SceneBor
         }
     }
 
+    /**
+     * methode om de verslagen enemies te updaten
+     * @author Jesse Veldmaat
+     */
     public void setEnemiesSlain() {
         enemiesSlain++;
     }
 
+    /**
+     * methode om de verslagen enemies terug te geven
+     * @author Jesse Veldmaat
+     * @return enemiesSlain
+     */
     public int getEnemiesSlain(){
         return enemiesSlain;
     }
 
+    /**
+     * methode om de attack te updaten
+     * @author Jesse Veldmaat
+     * @param newAttack
+     */
     public void setAttack(int newAttack){
         attack += newAttack;
     }
 
+    /**
+     * methode om de attack te geven
+     * @author Jesse Veldmaat
+     * @return attack
+     */
     public int getAttack(){
         return attack;
     }
